@@ -4,13 +4,16 @@ export interface AppState {
   title: string;
 }
 
+export const appStateName = 'app';
+
 export const appInitialState: AppState = {
   title: 'Initial title',
 };
 
 const appSlice = createSlice({
-  name: 'app',
+  name: appStateName,
   initialState: appInitialState,
+
   reducers: {
     updateTitle(state, action: PayloadAction<string>) {
       state.title = action.payload;
