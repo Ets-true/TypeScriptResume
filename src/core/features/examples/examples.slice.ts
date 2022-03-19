@@ -1,7 +1,7 @@
 import { createAction, createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export enum ExampleActionsEnum {
-  fetchUsers = 'example/fecthUsers',
+  fetchUsers = 'example/fetchUsers',
 }
 
 export interface ExampleUser {
