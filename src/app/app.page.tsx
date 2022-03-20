@@ -20,7 +20,7 @@ function App() {
 
   return (
     <Wrapper>
-      Lis V2AP application. Title: {title}
+      Бурочки. Title: {title}
       <div>
         <button onClick={updateTitle}>Update title</button>
       </div>
