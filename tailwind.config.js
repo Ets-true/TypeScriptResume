@@ -1,5 +1,10 @@
 module.exports = {
+  content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
+    container: {
+      center: true,
+    },
+
     dark: {
       colors: {
         text: '#24303B',
