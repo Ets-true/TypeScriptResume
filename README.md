@@ -1,1 +1,1 @@
-# LIS V2AP Application
+# CRA Typescript Redux Saga Twin Application
