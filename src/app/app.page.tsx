@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
 import React, { useEffect } from 'react';
+import tw, { styled } from 'twin.macro';
 
 import { actions } from './app.slice';
 import { fetchUsers } from 'core/features/examples/examples.slice';
@@ -18,13 +19,17 @@ function App() {
   const updateTitle = () => dispatch(actions.updateTitle('Hello title'));
 
   return (
-    <div className="App">
+    <Wrapper>
       Lis V2AP application. Title: {title}
       <div>
         <button onClick={updateTitle}>Update title</button>
       </div>
-    </div>
+    </Wrapper>
   );
 }
+
+const Wrapper = styled.div`
+  ${tw`border border-red-200 border-solid p-10`}
+`;
 
 export default App;
