@@ -1,4 +1,5 @@
 import createSagaMiddleware from 'redux-saga';
+import { reducer as signIn } from 'app/sign-in/sign-in.slice'
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 
 import saga from './saga';
@@ -12,6 +13,7 @@ const sagaMiddleware = createSagaMiddleware();
 export const store = configureStore({
   reducer: {
     app,
+    signIn,
     example,
     counter: counterSlice.reducer,
   },
