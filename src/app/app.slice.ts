@@ -2,12 +2,14 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export interface AppState {
   title: string;
+  token: string;
 }
 
 export const appStateName = 'app';
 
 export const appInitialState: AppState = {
   title: 'Initial title',
+  token: '',
 };
 
 const appSlice = createSlice({
