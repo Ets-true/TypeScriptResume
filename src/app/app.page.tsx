@@ -1,10 +1,21 @@
 import React from 'react';
+import { useToken } from 'core/hooks/use-token';
 import tw, { styled } from 'twin.macro';
 
 function App() {
+  const token = useToken();
+
+  if (!token) {
+    return (
+      <Wrapper>
+        <Content>Non auth application</Content>
+      </Wrapper>
+    );
+  }
+
   return (
     <Wrapper>
-      <Content>Content</Content>
+      <Content>Authenticated application</Content>
     </Wrapper>
   );
 }
