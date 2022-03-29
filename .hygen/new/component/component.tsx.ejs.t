@@ -10,7 +10,7 @@ interface <%= component_name %>Props {
 
 export function <%= component_name %>Component(props: <%= component_name %>Props) {
   return(<Wrapper data-testid="<%= component_name %>">
-
+    <%= component_name %> component
   </Wrapper>)
 }
 

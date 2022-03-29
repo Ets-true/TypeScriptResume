@@ -2,14 +2,14 @@ import { useAppDispatch } from 'core/state/hooks';
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import tw, { styled } from 'twin.macro';
-import { sendSignInFormData, SignInFormData } from './sign-in.slice';
+import { postFormDataAction, SignUpFromData } from './sign-up.slice';
 
 interface SignUpProps {}
 
-export function SignInPage(props: SignUpProps) {
+export function SignUpPage(props: SignUpProps) {
   const dispatch = useAppDispatch();
 
-  const [formData, setFormData] = useState<SignInFormData>({
+  const [formData, setFormData] = useState<SignUpFromData>({
     login: '',
     password: '',
   });
@@ -23,12 +23,12 @@ export function SignInPage(props: SignUpProps) {
 
   const onSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
-    dispatch(sendSignInFormData(formData));
+    dispatch(postFormDataAction(formData));
   };
 
   return (
-    <Wrapper data-testid="SignIn">
-      <Title>Вход</Title>
+    <Wrapper data-testid="SignUp">
+      <Title>Регистрация</Title>
 
       <FormWrapper>
         <form onSubmit={onSubmit}>
@@ -55,7 +55,7 @@ export function SignInPage(props: SignUpProps) {
           <ActionsWrapper>
             <input type="submit" value="Отправить" />
 
-            <NavLink to="/signup">Регистрация</NavLink>
+            <NavLink to="/">Войти</NavLink>
           </ActionsWrapper>
         </form>
       </FormWrapper>

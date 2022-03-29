@@ -1,17 +1,18 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import App from 'app/app.page';
+
+import { SignUp } from '../';
 import { StoreWrapper } from 'core/testing';
 
-describe('app page', () => {
-  it('should be render', () => {
+describe('Page <SignUp />', () => {
+  it('shoud be in the document', () => {
     render(
       <StoreWrapper>
-        <App />
+        <SignUp />
       </StoreWrapper>
     );
+    const element = screen.getByTestId(/SignUp/i);
 
-    const element = screen.getByTestId(/AppPage/i);
     expect(element).toBeInTheDocument();
   });
 });

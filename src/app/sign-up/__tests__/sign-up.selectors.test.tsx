@@ -1,7 +1,7 @@
 import { initialRootState, RootState } from 'core/state/store';
-import * as selectors from '../sign-in.selectors';
+import * as selectors from '../sign-up.selectors';
 
-describe('SignIn Selectors', () => {
+describe('SignUp Selectors', () => {
   let state: RootState;
 
   beforeEach(() => {

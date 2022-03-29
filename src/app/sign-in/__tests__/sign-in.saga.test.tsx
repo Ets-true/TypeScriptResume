@@ -1,14 +1,14 @@
-import { signInSaga } from '../sign-in.saga'
+import { signInSaga } from '../sign-in.saga';
 
 describe('SignIn saga', () => {
-  let signInSagaIterator: ReturnType<typeof signInSaga>
+  let signInSagaIterator: ReturnType<typeof signInSaga>;
 
   beforeEach(() => {
-    signInSagaIterator = signInSaga()
-  })
+    signInSagaIterator = signInSaga();
+  });
 
   it('should return "SignIn Saga"', () => {
-    const welcomeDescriptor = signInSagaIterator.next()
-    expect(welcomeDescriptor.value).toEqual('SignIn Saga')
-  })
-})
+    const welcomeDescriptor = signInSagaIterator.next();
+    expect((welcomeDescriptor.value as any).type === 'ALL').toBeTruthy();
+  });
+});
