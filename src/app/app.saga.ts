@@ -6,6 +6,7 @@ import { ApiReject } from './../core/services/api.service';
 import { checkAuth } from 'core/features/users/users.api';
 import { startAppActoin } from './app.slice';
 import { CheckAuthResponse } from 'core/features/users/users.constants';
+import { removeStorageToken } from 'core/hooks/use-token';
 
 // ======================== Start App ==========================================
 function* appStartWorker(): any {
@@ -16,6 +17,7 @@ function* appStartWorker(): any {
       yield put(actions.updateUser(data.user));
     }
   } catch (e) {
+    removeStorageToken();
     console.log('Catch error', (e as ApiReject).error);
   }
 }
