@@ -1,6 +1,7 @@
 // twin.d.ts
 import 'twin.macro';
 import styledImport, { CSSProp, css as cssImport } from 'styled-components';
+import {} from 'styled-components/cssprop';
 
 declare module 'twin.macro' {
   // The styled and css imports

@@ -1,12 +1,13 @@
+import { toast } from 'react-toastify';
+import { getStorageToken } from 'core/hooks/use-token';
 import { DefaultResponse } from 'core/interfaces/response.interfaces';
+
 // Usage example
 /* 
   api
     .get<any>(`${env.get('API_STORAGE_PREFIX')}/denm/get?page=0&size=6`)
     .then((response) => response.json().then(console.log))
 */
-
-import { getStorageToken } from 'core/hooks/use-token';
 
 interface Headers {
   'content-type': string;
@@ -42,6 +43,8 @@ class ApiService implements ApiServiceInterface {
           const body: DefaultResponse<T> = await response.json();
 
           if (body.message) {
+            toast.error(body.message);
+
             return Promise.reject({ error: body.message });
           }
         } catch (e) {
@@ -51,6 +54,11 @@ class ApiService implements ApiServiceInterface {
 
       try {
         const body: DefaultResponse<T> = await response.json();
+
+        if (body.message) {
+          toast(body.message);
+        }
+
         return Promise.resolve(body.data as T);
       } catch (e) {
         return Promise.reject({ error: 'Ошибка парсинга' });
@@ -80,6 +88,8 @@ class ApiService implements ApiServiceInterface {
           const body: DefaultResponse<T> = await response.json();
 
           if (body.message) {
+            toast.error(body.message);
+
             return Promise.reject({ error: body.message });
           }
         } catch (e) {
@@ -89,6 +99,11 @@ class ApiService implements ApiServiceInterface {
 
       try {
         const body: DefaultResponse<T> = await response.json();
+
+        if (body.message) {
+          toast(body.message);
+        }
+
         return Promise.resolve(body.data as T);
       } catch (e) {
         return Promise.reject({ error: 'Ошибка парсинга' });
@@ -120,6 +135,8 @@ class ApiService implements ApiServiceInterface {
           const body: DefaultResponse<T> = await response.json();
 
           if (body.message) {
+            toast.error(body.message);
+
             return Promise.reject({ error: body.message });
           }
         } catch (e) {
@@ -129,6 +146,11 @@ class ApiService implements ApiServiceInterface {
 
       try {
         const body: DefaultResponse<T> = await response.json();
+
+        if (body.message) {
+          toast(body.message);
+        }
+
         return Promise.resolve(body.data as T);
       } catch (e) {
         return Promise.reject({ error: 'Ошибка парсинга' });
