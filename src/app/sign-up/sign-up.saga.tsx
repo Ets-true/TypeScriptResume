@@ -8,13 +8,13 @@ import { postFormDataAction } from './sign-up.slice';
 
 function* submitSignUpWorker(data: any): any {
   try {
-    const response: SignUpResponse = yield call(submitSignUp, data.payload);
+    const responseData: SignUpResponse = yield call(submitSignUp, data.payload);
 
-    if (response.token) {
-      setStorageToken(response.token);
+    if (responseData.token) {
+      setStorageToken(responseData.token);
 
-      if (response.user) {
-        yield put(actions.updateUser(response.user));
+      if (responseData.user) {
+        yield put(actions.updateUser(responseData.user));
       }
     }
   } catch (err) {

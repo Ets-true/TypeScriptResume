@@ -1,19 +1,23 @@
+import { all, call, put, takeLatest } from 'redux-saga/effects';
+
+import { actions } from 'app/app.slice';
+
 import { ApiReject } from './../core/services/api.service';
 import { checkAuth } from 'core/features/users/users.api';
-import { all, call, takeLatest } from 'redux-saga/effects';
 import { startAppActoin } from './app.slice';
+import { CheckAuthResponse } from 'core/features/users/users.constants';
 
 // ======================== Start App ==========================================
 function* appStartWorker(): any {
   try {
-    const data = yield call(checkAuth);
+    const data: CheckAuthResponse = yield call(checkAuth);
 
-    console.log('Data error', { data });
+    if (data.user) {
+      yield put(actions.updateUser(data.user));
+    }
   } catch (e) {
     console.log('Catch error', (e as ApiReject).error);
   }
-
-  // console.log('Check auth reslut', authData);
 }
 
 function* appStartWatcher() {

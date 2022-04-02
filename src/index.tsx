@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import { ToastContainer } from 'react-toastify';
 
 import { store } from './core/state/store';
 import App from './app/app.page';
@@ -16,6 +17,18 @@ ReactDOM.render(
       <BrowserRouter>
         <GlobalStyles />
         <App />
+
+        <ToastContainer
+          position="top-right"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
       </BrowserRouter>
     </Provider>
   </React.StrictMode>,

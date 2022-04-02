@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 
 import tw, { styled } from 'twin.macro';
-import { ToastContainer } from 'react-toastify';
 import { Routes, Route } from 'react-router-dom';
 
 import { SignIn } from './sign-in';
@@ -14,18 +13,6 @@ import { useAppDispatch, useAppSelector } from 'core/state/hooks';
 const AuthApp = () => (
   <Wrapper data-testid="AppPage">
     <Content>application</Content>
-
-    <ToastContainer
-      position="top-right"
-      autoClose={5000}
-      hideProgressBar={false}
-      newestOnTop={false}
-      closeOnClick
-      rtl={false}
-      pauseOnFocusLoss
-      draggable
-      pauseOnHover
-    />
   </Wrapper>
 );
 
@@ -37,18 +24,6 @@ const NonAuthApp = () => (
         <Route path="/signup" element={<SignUp />} />
       </Routes>
     </Content>
-
-    <ToastContainer
-      position="top-right"
-      autoClose={5000}
-      hideProgressBar={false}
-      newestOnTop={false}
-      closeOnClick
-      rtl={false}
-      pauseOnFocusLoss
-      draggable
-      pauseOnHover
-    />
   </Wrapper>
 );
 
