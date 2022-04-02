@@ -2,7 +2,7 @@ import { useAppDispatch } from 'core/state/hooks';
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import tw, { styled } from 'twin.macro';
-import { sendSignInFormData, SignInFormData } from './sign-in.slice';
+import { signInAction, SignInFormData } from './sign-in.slice';
 
 interface SignUpProps {}
 
@@ -23,7 +23,7 @@ export function SignInPage(props: SignUpProps) {
 
   const onSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
-    dispatch(sendSignInFormData(formData));
+    dispatch(signInAction(formData));
   };
 
   return (

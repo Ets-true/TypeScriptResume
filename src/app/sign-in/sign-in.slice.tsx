@@ -16,7 +16,7 @@ export enum SignInActionsEnum {
   sendFormData = 'signin/sendFormData',
 }
 
-export const sendSignInFormData = createAction<SignInFormData>(
+export const signInAction = createAction<SignInFormData>(
   SignInActionsEnum.sendFormData
 );
 

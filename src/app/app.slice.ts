@@ -1,21 +1,24 @@
-import { User } from 'core/interfaces/user.interfaces';
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { User } from 'core/features/users/users.constants';
+import { createSlice, PayloadAction, createAction } from '@reduxjs/toolkit';
 
+export enum AppActionsEnum {
+  startApp = 'app/startApp',
+  checkAuth = 'app/checkAuth',
+}
+
+export const startAppActoin = createAction(AppActionsEnum.startApp);
+export const appCheckAuthAction = createAction(AppActionsEnum.checkAuth);
 export interface AppState {
-  user: User;
+  user: User | null;
   title: string;
-  token: string;
 }
 
 export const appStateName = 'app';
 
 export const appInitialState: AppState = {
-  user: {
-    login: '',
-  },
+  user: null,
 
   title: 'Initial title',
-  token: '',
 };
 
 const appSlice = createSlice({
@@ -25,10 +28,6 @@ const appSlice = createSlice({
   reducers: {
     updateTitle(state, action: PayloadAction<string>) {
       state.title = action.payload;
-    },
-
-    updateToken(state, action: PayloadAction<string>) {
-      state.token = action.payload;
     },
 
     updateUser(state, action: PayloadAction<User>) {

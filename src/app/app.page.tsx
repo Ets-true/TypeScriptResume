@@ -1,9 +1,14 @@
-import React from 'react';
-import { useToken } from 'core/hooks/use-token';
+import React, { useEffect } from 'react';
+
 import tw, { styled } from 'twin.macro';
 import { Routes, Route } from 'react-router-dom';
+
 import { SignIn } from './sign-in';
 import { SignUp } from './sign-up';
+
+import { selectUser } from './app.selectors';
+import { startAppActoin } from './app.slice';
+import { useAppDispatch, useAppSelector } from 'core/state/hooks';
 
 const AuthApp = () => (
   <Wrapper data-testid="AppPage">
@@ -23,9 +28,14 @@ const NonAuthApp = () => (
 );
 
 function App() {
-  const token = useToken();
+  const user = useAppSelector(selectUser);
+  const dispatch = useAppDispatch();
 
-  return (token && <AuthApp />) || <NonAuthApp />;
+  useEffect(() => {
+    dispatch(startAppActoin());
+  }, []);
+
+  return (user && <AuthApp />) || <NonAuthApp />;
 }
 
 const Content = styled.main`

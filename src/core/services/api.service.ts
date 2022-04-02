@@ -1,3 +1,4 @@
+import { DefaultResponse } from 'core/interfaces/response.interfaces';
 // Usage example
 /* 
   api
@@ -18,25 +19,42 @@ interface ApiServiceInterface {
   post<T>(route: string, data: any, headers?: Headers): Promise<T>;
 }
 
+export interface ApiReject {
+  error: string;
+}
+
 class ApiService implements ApiServiceInterface {
   get<T>(route: string, headers?: Headers): Promise<T> {
     return fetch(route, {
       method: 'GET',
       headers: headers
         ? {
-            Authorization: `Bearer ${getStorageToken()}`,
+            Authorization: getStorageToken(),
             ...headers,
           }
         : {
-            Authorization: `Bearer ${getStorageToken()}`,
+            Authorization: getStorageToken(),
             'Content-Type': 'application/json',
           },
-    }).then((response) => {
+    }).then(async (response) => {
       if (!response.ok) {
-        throw new Error(response.statusText);
+        try {
+          const body: DefaultResponse<T> = await response.json();
+
+          if (body.message) {
+            return Promise.reject({ error: body.message });
+          }
+        } catch (e) {
+          return Promise.reject({ error: 'Ошибка парсинга' });
+        }
       }
 
-      return response.json().then((data) => data as T);
+      try {
+        const body: DefaultResponse<T> = await response.json();
+        return Promise.resolve(body.data as T);
+      } catch (e) {
+        return Promise.reject({ error: 'Ошибка парсинга' });
+      }
     });
   }
 
@@ -49,23 +67,31 @@ class ApiService implements ApiServiceInterface {
       method: 'DELETE',
       headers: headers
         ? {
-            Authorization: `Bearer ${getStorageToken()}`,
+            Authorization: getStorageToken(),
             ...headers,
           }
         : {
-            Authorization: `Bearer ${getStorageToken()}`,
+            Authorization: getStorageToken(),
             'Content-Type': 'application/json',
           },
     }).then(async (response) => {
       if (!response.ok) {
-        throw new Error(response.statusText);
+        try {
+          const body: DefaultResponse<T> = await response.json();
+
+          if (body.message) {
+            return Promise.reject({ error: body.message });
+          }
+        } catch (e) {
+          return Promise.reject({ error: 'Ошибка парсинга' });
+        }
       }
 
       try {
-        const body = await response.json();
-        return body as T;
+        const body: DefaultResponse<T> = await response.json();
+        return Promise.resolve(body.data as T);
       } catch (e) {
-        return Promise.resolve({} as T);
+        return Promise.reject({ error: 'Ошибка парсинга' });
       }
     });
   }
@@ -78,7 +104,7 @@ class ApiService implements ApiServiceInterface {
     headers.append('Content-Type', 'application/json');
 
     if (token) {
-      headers.append('Authorization', `Bearer ${token}`);
+      headers.append('Authorization', token);
     }
 
     const requestOptions = {
@@ -88,9 +114,26 @@ class ApiService implements ApiServiceInterface {
       redirect: 'follow',
     };
 
-    return fetch(route, requestOptions as any)
-      .then((response) => response.json())
-      .then((data) => data as T);
+    return fetch(route, requestOptions as any).then(async (response) => {
+      if (!response.ok) {
+        try {
+          const body: DefaultResponse<T> = await response.json();
+
+          if (body.message) {
+            return Promise.reject({ error: body.message });
+          }
+        } catch (e) {
+          return Promise.reject({ error: 'Ошибка парсинга' });
+        }
+      }
+
+      try {
+        const body: DefaultResponse<T> = await response.json();
+        return Promise.resolve(body.data as T);
+      } catch (e) {
+        return Promise.reject({ error: 'Ошибка парсинга' });
+      }
+    });
   }
 }
 
