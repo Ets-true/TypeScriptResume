@@ -1,4 +1,4 @@
-const kebabize = require('../../kebabize')
+const kebabize = require('../../kebabize');
 
 module.exports = {
   prompt: ({ inquirer }) => {
@@ -14,15 +14,15 @@ module.exports = {
         name: 'dir',
         message: 'Location of the component? ("src/app/components")',
       },
-    ]
+    ];
 
     return inquirer.prompt(questions).then((answers) => {
-      const { component_name: componentName, dir } = answers
+      const { component_name: componentName, dir } = answers;
 
-      const path = `${dir ? dir : 'src/app'}/${kebabize(componentName)}`
-      const componentFileName = `${kebabize(componentName)}.component`
+      const path = `${dir ? dir : 'src/app'}/${kebabize(componentName)}`;
+      const componentFileName = `${kebabize(componentName)}.component`;
 
-      return { ...answers, path, component_file_name: componentFileName }
-    })
+      return { ...answers, path, component_file_name: componentFileName };
+    });
   },
-}
+};

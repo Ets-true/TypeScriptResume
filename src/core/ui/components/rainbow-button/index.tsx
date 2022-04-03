@@ -1,1 +1,1 @@
-export { RainbowButtonComponent as RainbowButton } from './rainbow-button.component'
+export { RainbowButtonComponent as RainbowButton } from './rainbow-button.component';

@@ -3,6 +3,6 @@ const config = {
     headless: false,
     slowMo: 30,
   },
-}
+};
 
-module.exports = config
+module.exports = config;
