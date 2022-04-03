@@ -36,12 +36,8 @@
     "new:component": "hygen new component",
     "new:page": "hygen new page",
     "storybook": "start-storybook -p 6006 -s public",
+    "prepare": "husky install",
     "build-storybook": "build-storybook -s public"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   },
   "eslintConfig": {
     "extends": [
