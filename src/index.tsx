@@ -1,15 +1,15 @@
 import React from 'react';
-import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 
-import { store } from './core/state/store';
 import App from './app/app.page';
+import { store } from './core/state/store';
+import * as serviceWorker from './serviceWorker';
 
 import './index.css';
 import { GlobalStyles } from 'core/ui/styles';
-import * as serviceWorker from './serviceWorker';
-import { BrowserRouter } from 'react-router-dom';
 
 const container = document.getElementById('root');
 
@@ -20,26 +20,24 @@ if (!container) {
 const root = createRoot(container);
 
 root.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <BrowserRouter>
-        <GlobalStyles />
-        <App />
+  <Provider store={store}>
+    <BrowserRouter>
+      <GlobalStyles />
+      <App />
 
-        <ToastContainer
-          position="top-right"
-          autoClose={3000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-        />
-      </BrowserRouter>
-    </Provider>
-  </React.StrictMode>
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
+    </BrowserRouter>
+  </Provider>
 );
 
 // If you want your app to work offline and load faster, you can change

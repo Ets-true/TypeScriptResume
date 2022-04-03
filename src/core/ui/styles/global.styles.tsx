@@ -10,7 +10,7 @@ const CustomStyles = createGlobalStyle`
     font-family: 'Roboto';
     color: ${colors('text')};
     ${tw`h-full w-full`}
-  }  
+  }
 `;
 
 export function GlobalStylesComponent() {

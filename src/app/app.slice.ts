@@ -18,7 +18,7 @@ export const appStateName = 'app';
 export const appInitialState: AppState = {
   user: null,
 
-  title: 'Initial title',
+  title: 'Initial title!!!',
 };
 
 const appSlice = createSlice({
@@ -30,8 +30,8 @@ const appSlice = createSlice({
       state.title = action.payload;
     },
 
-    updateUser(state, action: PayloadAction<User>) {
-      state.user = action.payload;
+    updateUser(state, action: PayloadAction<User | undefined>) {
+      state.user = action.payload || null;
     },
   },
 });

@@ -6,25 +6,27 @@ import { Routes, Route } from 'react-router-dom';
 import { SignIn } from './sign-in';
 import { SignUp } from './sign-up';
 
+import { RainbowBorder } from 'core/ui/styles/mixins/rainbow';
+
 import { selectUser } from './app.selectors';
 import { startAppActoin } from './app.slice';
 import { useAppDispatch, useAppSelector } from 'core/state/hooks';
 
 const AuthApp = () => (
-  <Wrapper data-testid="AppPage">
-    <Content>application</Content>
-  </Wrapper>
+  <React.StrictMode>
+    <Wrapper data-testid="AppPage">content</Wrapper>
+  </React.StrictMode>
 );
 
 const NonAuthApp = () => (
-  <Wrapper data-testid="AppPage">
-    <Content>
+  <React.StrictMode>
+    <Wrapper data-testid="AppPage">
       <Routes>
         <Route path="/" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
       </Routes>
-    </Content>
-  </Wrapper>
+    </Wrapper>
+  </React.StrictMode>
 );
 
 function App() {
@@ -38,12 +40,9 @@ function App() {
   return (user && <AuthApp />) || <NonAuthApp />;
 }
 
-const Content = styled.main`
-  ${tw`border-red-200 border border-solid`}
-`;
-
 const Wrapper = styled.div`
-  ${tw`container mx-auto border border-green-200 border-solid`}
+  ${RainbowBorder};
+  ${tw`container h-full mx-auto bg-white`};
 `;
 
 export default App;

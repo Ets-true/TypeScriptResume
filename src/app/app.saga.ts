@@ -17,6 +17,7 @@ function* appStartWorker(): any {
     }
   } catch (e) {
     removeStorageToken();
+    yield put(actions.updateUser());
   }
 }
 
