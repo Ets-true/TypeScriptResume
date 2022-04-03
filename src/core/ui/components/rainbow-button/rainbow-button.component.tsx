@@ -3,10 +3,21 @@ import tw, { styled } from 'twin.macro';
 
 interface RainbowButtonProps {
   children: any;
+
+  type?: 'button' | 'submit' | 'reset' | undefined;
+  onClick?(event: React.MouseEvent<HTMLElement>): void;
 }
 
-export function RainbowButtonComponent({ children }: RainbowButtonProps) {
-  return <Wrapper data-testid="RainbowButton">{children}</Wrapper>;
+export function RainbowButtonComponent({
+  type = 'button',
+  onClick = (e) => {},
+  children,
+}: RainbowButtonProps) {
+  return (
+    <Wrapper onClick={onClick} type={type} data-testid="RainbowButton">
+      {children}
+    </Wrapper>
+  );
 }
 
 const Wrapper = styled.button`

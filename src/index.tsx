@@ -4,7 +4,7 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 
-import App from './app/app.page';
+import { App } from './app';
 import { store } from './core/state/store';
 import * as serviceWorker from './serviceWorker';
 
@@ -23,6 +23,7 @@ root.render(
   <Provider store={store}>
     <BrowserRouter>
       <GlobalStyles />
+
       <App />
 
       <ToastContainer

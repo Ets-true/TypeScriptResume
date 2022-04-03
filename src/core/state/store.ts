@@ -3,8 +3,8 @@ import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 
 import saga from './saga';
 import * as app from 'app/app.slice';
-import * as signUp from 'app/sign-up/sign-up.slice';
-import * as signIn from 'app/sign-in/sign-in.slice';
+import * as signUp from 'app/unauth-app/sign-up/sign-up.slice';
+import * as signIn from 'app/unauth-app/sign-in/sign-in.slice';
 import * as example from 'core/features/examples/examples.slice';
 import * as counter from 'core/features/examples/counter/counter.slice';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import App from 'app/app.page';
 import { StoreWrapper } from 'core/testing';
+import { App } from 'app';
 
 describe('app page', () => {
   it('should be render', () => {
