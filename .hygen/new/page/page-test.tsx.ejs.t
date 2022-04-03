@@ -5,7 +5,7 @@ import React from 'react';
 import { StoreWrapper } from 'core/testing';
 import { render, screen } from '@testing-library/react';
 
-import { <%= page_name %> } from '../'
+import { <%= page_name %> } from '../';
 
 describe('Page <<%= page_name %> />', () => {
   it('should be in the document', () => {
@@ -19,4 +19,4 @@ describe('Page <<%= page_name %> />', () => {
 
     expect(element).toBeInTheDocument();
   });
-})
+});

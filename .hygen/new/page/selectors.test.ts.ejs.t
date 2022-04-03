@@ -5,13 +5,13 @@ import { initialRootState, RootState } from 'core/state/store';
 import * as selectors from '../<%= kebab_name %>.selectors';
 
 describe('<%= page_name %> Selectors', () => {
-  let state: RootState
+  let state: RootState;
 
   beforeEach(() => {
     state = initialRootState
-  })
+  });
 
   it('should select "loading" property', () => {
-    expect(selectors.selectLoading(state)).toBeFalsy()
-  })
-})
+    expect(selectors.selectLoading(state)).toBeFalsy();
+  });
+});
