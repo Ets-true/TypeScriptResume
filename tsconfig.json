@@ -15,7 +15,9 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "baseUrl": "./src"
+    "baseUrl": "./src",
+
+    "types": ["puppeteer", "jest-environment-puppeteer", "expect-puppeteer"]
   },
   "include": ["src", "src/core/types/*.d.ts", "tailwind.config.js"]
 }
