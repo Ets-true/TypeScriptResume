@@ -3,6 +3,7 @@ import { createGlobalStyle } from 'styled-components';
 import tw, { GlobalStyles as BaseStyles } from 'twin.macro';
 import { colors } from './colors';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-toastify/dist/ReactToastify.css';
 
 const CustomStyles = createGlobalStyle`

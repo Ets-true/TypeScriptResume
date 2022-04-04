@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import tw, { styled } from 'twin.macro';
 import { signInAction, SignInFormData } from './sign-in.slice';
+import Button from 'react-bootstrap/Button';
 
 interface SignUpProps {}
 
@@ -53,7 +54,7 @@ export function SignInPage(props: SignUpProps) {
           </InputWrapper>
 
           <ActionsWrapper>
-            <input type="submit" value="Отправить" />
+            <Button type="submit">Войти</Button>
 
             <NavLink to="/signup">Регистрация</NavLink>
           </ActionsWrapper>
