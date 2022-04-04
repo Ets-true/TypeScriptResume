@@ -1,10 +1,10 @@
 import React from 'react';
-
-import tw, { styled } from 'twin.macro';
 import { Route, Routes } from 'react-router-dom';
 
 import { SignIn } from './sign-in';
 import { SignUp } from './sign-up';
+import { Container } from 'react-bootstrap';
+import tw, { styled } from 'twin.macro';
 
 export default function UnauthApp() {
   return (
@@ -12,13 +12,13 @@ export default function UnauthApp() {
       <Wrapper data-testid="AppPage">
         <Routes>
           <Route path="/" element={<SignIn />} />
-          <Route path="/signup" element={<SignUp />} />
+          <Route path={SignUp.route} element={<SignUp />} />
         </Routes>
       </Wrapper>
     </React.StrictMode>
   );
 }
 
-const Wrapper = styled.div`
-  ${tw`container h-full mx-auto bg-white`};
+const Wrapper = styled(Container)`
+  ${tw`h-full flex flex-col`}
 `;

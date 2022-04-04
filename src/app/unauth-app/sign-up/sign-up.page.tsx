@@ -62,6 +62,9 @@ export function SignUpPage(props: SignUpProps) {
     </Wrapper>
   );
 }
+
+SignUpPage.route = '/signup';
+
 const ActionsWrapper = styled.div`
   ${tw`mt-2 flex justify-between items-center`};
 
