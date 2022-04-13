@@ -60,9 +60,9 @@ export function SignInPage(props: SignUpProps) {
                         name="password"
                         type="password"
                         placeholder="Password"
-                        value={values.login}
+                        value={values.password}
                         onChange={handleChange}
-                        isInvalid={!!errors.login}
+                        isInvalid={!!errors.password}
                       />
 
                       <Form.Control.Feedback type="invalid">
