@@ -2,7 +2,7 @@ import React from 'react';
 import tw, { styled } from 'twin.macro';
 import Transition from 'react-transition-group/Transition';
 
-const duration = 500;
+const duration = 300;
 
 interface StartLoaderProps {
   show: boolean;
@@ -32,6 +32,7 @@ export function StartLoaderComponent({ show }: StartLoaderProps) {
 
 const Wrapper = styled.div`
   ${tw`w-full h-full flex items-center justify-center absolute z-10 opacity-0 bg-white`};
+
   transition: opacity ${duration}ms ease-in-out;
 
   &.fade {
