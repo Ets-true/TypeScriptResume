@@ -6,10 +6,12 @@ import { checkAuth } from 'core/features/users/users.api';
 import { startAppActoin } from './app.slice';
 import { CheckAuthResponse } from 'core/features/users/users.constants';
 import { removeStorageToken } from 'core/hooks/use-token';
+import { asyncTimeout } from 'core/helpers/async-timeout';
 
 // ======================== Start App ==========================================
 function* appStartWorker(): any {
   try {
+    yield put(actions.setAuthLoader(true));
     const data: CheckAuthResponse = yield call(checkAuth);
 
     if (data.user) {
@@ -18,6 +20,9 @@ function* appStartWorker(): any {
   } catch (e) {
     removeStorageToken();
     yield put(actions.updateUser());
+  } finally {
+    yield call(asyncTimeout, 3000);
+    yield put(actions.setAuthLoader(false));
   }
 }
 

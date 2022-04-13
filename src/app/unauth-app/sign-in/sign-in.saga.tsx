@@ -7,17 +7,19 @@ import { SignInResponse } from 'core/features/users/users.constants';
 import { setStorageToken } from 'core/hooks/use-token';
 
 function* submitSignInWorker(data: any): any {
-  const responseData: SignInResponse = yield call(submitSignIn, data.payload);
+  try {
+    const responseData: SignInResponse = yield call(submitSignIn, data.payload);
 
-  if (responseData) {
-    setStorageToken(responseData.token);
+    if (responseData) {
+      setStorageToken(responseData.token);
 
-    if (responseData.user) {
-      yield put(actions.updateUser(responseData.user));
+      if (responseData.user) {
+        yield put(actions.updateUser(responseData.user));
+      }
     }
+  } catch (err) {
+    console.log('Error sign up', { err });
   }
-
-  yield true;
 }
 
 function* submitSignInWatcher() {

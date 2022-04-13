@@ -11,14 +11,15 @@ export const appCheckAuthAction = createAction(AppActionsEnum.checkAuth);
 export interface AppState {
   user: User | null;
   title: string;
+  showAuthLoader: boolean;
 }
 
 export const appStateName = 'app';
 
 export const appInitialState: AppState = {
   user: null,
-
   title: 'Initial title!!!',
+  showAuthLoader: true,
 };
 
 const appSlice = createSlice({
@@ -32,6 +33,10 @@ const appSlice = createSlice({
 
     updateUser(state, action: PayloadAction<User | undefined>) {
       state.user = action.payload || null;
+    },
+
+    setAuthLoader(state, action: PayloadAction<boolean>) {
+      state.showAuthLoader = action.payload;
     },
   },
 });
