@@ -99,7 +99,7 @@ const Wrapper = styled.div`
   }
   @keyframes loading {
     1% {
-      background-color: #0086b3;
+      background-color: #ec407a;
     }
   }
 `;
