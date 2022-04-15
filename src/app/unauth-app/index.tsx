@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 
 import { SignIn } from './sign-in';
 import { SignUp } from './sign-up';
@@ -11,8 +11,9 @@ export default function UnauthApp() {
     <React.StrictMode>
       <Wrapper data-testid="AppPage">
         <Routes>
-          <Route path="/" element={<SignIn />} />
+          <Route path={SignIn.route} element={<SignIn />} />
           <Route path={SignUp.route} element={<SignUp />} />
+          <Route path={'*'} element={<Navigate to={SignIn.route} />} />
         </Routes>
       </Wrapper>
     </React.StrictMode>

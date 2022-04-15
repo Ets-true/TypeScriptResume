@@ -1,6 +1,6 @@
 import { useAppDispatch } from 'core/state/hooks';
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import tw, { styled } from 'twin.macro';
 import { postFormDataAction, SignUpFromData } from './sign-up.slice';
 
@@ -8,6 +8,7 @@ interface SignUpProps {}
 
 export function SignUpPage(props: SignUpProps) {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState<SignUpFromData>({
     login: '',
@@ -23,7 +24,13 @@ export function SignUpPage(props: SignUpProps) {
 
   const onSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
-    dispatch(postFormDataAction(formData));
+
+    dispatch(
+      postFormDataAction({
+        formData,
+        navigate: () => navigate('/'),
+      })
+    );
   };
 
   return (

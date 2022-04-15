@@ -4,11 +4,15 @@ import { actions } from 'app/app.slice';
 import { submitSignUp } from 'core/features/users/users.api';
 import { SignUpResponse } from 'core/features/users/users.constants';
 import { setStorageToken } from 'core/hooks/use-token';
-import { postFormDataAction } from './sign-up.slice';
+import { postFormDataAction, PostSignUpPayload } from './sign-up.slice';
+import { PayloadAction } from '@reduxjs/toolkit';
 
-function* submitSignUpWorker(data: any): any {
+function* submitSignUpWorker(action: PayloadAction<PostSignUpPayload>): any {
   try {
-    const responseData: SignUpResponse = yield call(submitSignUp, data.payload);
+    const responseData: SignUpResponse = yield call(
+      submitSignUp,
+      action.payload.formData
+    );
 
     if (responseData.token) {
       setStorageToken(responseData.token);
@@ -16,6 +20,8 @@ function* submitSignUpWorker(data: any): any {
       if (responseData.user) {
         yield put(actions.updateUser(responseData.user));
       }
+
+      yield action.payload.navigate();
     }
   } catch (err) {
     console.log('Error sign up', { err });

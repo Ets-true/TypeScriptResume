@@ -5,6 +5,10 @@ const sliceName = 'signUp';
 export enum SignUpActionsEnum {
   postFormData = 'signUp/postFormData',
 }
+export interface PostSignUpPayload {
+  formData: SignUpFromData;
+  navigate: () => void;
+}
 
 export interface SignUpFromData {
   login: string;
@@ -19,7 +23,7 @@ export const signUpInitialState: SignUpState = {
   loading: false,
 };
 
-export const postFormDataAction = createAction<SignUpFromData>(
+export const postFormDataAction = createAction<PostSignUpPayload>(
   SignUpActionsEnum.postFormData
 );
 

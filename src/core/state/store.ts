@@ -1,3 +1,4 @@
+import { SignUpActionsEnum } from './../../app/unauth-app/sign-up/sign-up.slice';
 import createSagaMiddleware from 'redux-saga';
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 
@@ -27,7 +28,11 @@ export const store = configureStore({
     counter: counter.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(sagaMiddleware),
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [SignUpActionsEnum.postFormData],
+      },
+    }).concat(sagaMiddleware),
 });
 
 sagaMiddleware.run(saga);

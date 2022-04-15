@@ -78,7 +78,7 @@ export function SignInPage(props: SignUpProps) {
                   </Col>
 
                   <Col lg="2" className="text-right">
-                    <NavLink to={SignUpPage.route}>Зарегестрироваться</NavLink>
+                    <NavLink to={SignUpPage.route}>Зарегистрироваться</NavLink>
                   </Col>
                 </ActionsWrapper>
               </Form>
@@ -89,6 +89,8 @@ export function SignInPage(props: SignUpProps) {
     </StyledCard>
   );
 }
+
+SignInPage.route = 'signin';
 
 const StyledCard = styled(Card)`
   ${tw`mt-10`};
