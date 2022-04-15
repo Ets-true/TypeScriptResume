@@ -4,6 +4,7 @@ import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 
 import saga from './saga';
 import * as app from 'app/app.slice';
+import * as home from 'app/auth-app/home/home.slice';
 import * as signUp from 'app/unauth-app/sign-up/sign-up.slice';
 import * as signIn from 'app/unauth-app/sign-in/sign-in.slice';
 import * as example from 'core/features/examples/examples.slice';
@@ -13,6 +14,7 @@ const sagaMiddleware = createSagaMiddleware();
 
 export const initialRootState: RootState = {
   app: app.appInitialState,
+  home: home.homeInitialState,
   signIn: signIn.signInInitialState,
   signUp: signUp.signUpInitialState,
   example: example.exampleInitialState,
@@ -22,6 +24,7 @@ export const initialRootState: RootState = {
 export const store = configureStore({
   reducer: {
     app: app.reducer,
+    home: home.reducer,
     signUp: signUp.reducer,
     signIn: signIn.reducer,
     example: example.reducer,
