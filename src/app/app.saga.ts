@@ -21,7 +21,7 @@ function* appStartWorker(): any {
     removeStorageToken();
     yield put(actions.updateUser());
   } finally {
-    yield call(asyncTimeout, 3000);
+    yield call(asyncTimeout, 1000);
     yield put(actions.setAuthLoader(false));
   }
 }
