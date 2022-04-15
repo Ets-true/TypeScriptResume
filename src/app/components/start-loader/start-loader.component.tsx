@@ -70,31 +70,31 @@ const Wrapper = styled.div`
     animation: loading 0.8s infinite;
   }
 
-  ul li:nth-child(5) {
+  ul li:nth-of-type(5) {
     opacity: 0;
   }
-  ul li:nth-child(1) {
+  ul li:nth-of-type(1) {
     animation-delay: 0.1s;
   }
-  ul li:nth-child(2) {
+  ul li:nth-of-type(2) {
     animation-delay: 0.2s;
   }
-  ul li:nth-child(3) {
+  ul li:nth-of-type(3) {
     animation-delay: 0.3s;
   }
-  ul li:nth-child(6) {
+  ul li:nth-of-type(6) {
     animation-delay: 0.4s;
   }
-  ul li:nth-child(9) {
+  ul li:nth-of-type(9) {
     animation-delay: 0.5s;
   }
-  ul li:nth-child(8) {
+  ul li:nth-of-type(8) {
     animation-delay: 0.6s;
   }
-  ul li:nth-child(7) {
+  ul li:nth-of-type(7) {
     animation-delay: 0.7s;
   }
-  ul li:nth-child(4) {
+  ul li:nth-of-type(4) {
     animation-delay: 0.8s;
   }
   @keyframes loading {
