@@ -2,22 +2,34 @@ import React from 'react';
 import tw, { styled } from 'twin.macro';
 import { useNavigate } from 'react-router-dom';
 
-import { CgProfile } from 'react-icons/cg';
 import { HomePage } from 'app/auth-app/home/home.page';
 
 import logoImage from './assets/logo.png';
+import { CgProfile } from 'react-icons/cg';
+
+import { selectUser } from 'app/app.selectors';
+import { useAppSelector } from 'core/state/hooks';
+import { getProfileRoute } from 'core/features/users/users.helpers';
+import { colors } from 'core/ui/styles';
 
 interface AppBarProps {}
 
 export function AppBarComponent(props: AppBarProps) {
+  const user = useAppSelector(selectUser);
   const navigate = useNavigate();
+
+  const goToProfile = () => {
+    if (user) {
+      navigate(getProfileRoute(user.login));
+    }
+  };
 
   return (
     <Wrapper data-testid="AppBar">
       <LogoImage src={logoImage} alt="Логотип" />
       <LogoText onClick={() => navigate(HomePage.route)}>Бурочки</LogoText>
       <ActionsWrapper>
-        <Button>
+        <Button onClick={goToProfile}>
           <CgProfile />
         </Button>
       </ActionsWrapper>
@@ -27,6 +39,9 @@ export function AppBarComponent(props: AppBarProps) {
 
 const Button = styled.div`
   ${tw`cursor-pointer`};
+
+  color: ${colors('primary')};
+  font-size: 18px;
 `;
 
 const ActionsWrapper = styled.div`
