@@ -11,7 +11,6 @@ async function getPeople() {
 export function* workerSaga(): any {
   const data: any = yield call(getPeople);
 
-  console.log(data);
   yield put(actions.setUsers(data));
 }
 

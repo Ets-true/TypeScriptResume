@@ -25,11 +25,6 @@ export function AppBarComponent(props: AppBarProps) {
     }
   };
 
-  console.log('ENV: ', {
-    comp: env.get(EnvNamesEnum.companyName),
-    proc: process.env,
-  });
-
   return (
     <Wrapper data-testid="AppBar">
       <LogoImage src={logoImage} alt="Логотип" />
