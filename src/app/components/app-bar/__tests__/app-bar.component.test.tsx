@@ -1,17 +1,17 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 
-import { Layout } from '../';
+import { AppBar } from '../';
 import { StoreWrapper } from 'core/testing';
 
-describe('Component <Layout />', () => {
+describe('Component <AppBar />', () => {
   it('should be render', () => {
     render(
       <StoreWrapper>
-        <Layout />
+        <AppBar />
       </StoreWrapper>
     );
-    const element = screen.getByTestId(/Layout/i);
+    const element = screen.getByTestId(/AppBar/i);
 
     expect(element).toBeInTheDocument();
   });
