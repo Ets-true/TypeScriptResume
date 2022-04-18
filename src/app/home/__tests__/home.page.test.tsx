@@ -2,7 +2,7 @@ import React from 'react';
 import { StoreWrapper } from 'core/testing';
 import { render, screen } from '@testing-library/react';
 
-import { Home } from '../';
+import { Home } from '..';
 
 describe('Page <Home />', () => {
   it('should be in the document', () => {

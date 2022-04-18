@@ -2,7 +2,7 @@ import React from 'react';
 import tw, { styled } from 'twin.macro';
 import { useNavigate } from 'react-router-dom';
 
-import { HomePage } from 'app/auth-app/home/home.page';
+import { HomePage } from 'app/home/home.page';
 
 import logoImage from './assets/logo.png';
 import { CgProfile } from 'react-icons/cg';

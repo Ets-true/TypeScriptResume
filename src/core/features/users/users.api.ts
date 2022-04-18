@@ -1,5 +1,5 @@
-import { SignUpFromData } from 'app/unauth-app/sign-up/sign-up.slice';
-import { SignInFormData } from 'app/unauth-app/sign-in/sign-in.slice';
+import { SignUpFromData } from 'app/sign-up/sign-up.slice';
+import { SignInFormData } from 'app/sign-in/sign-in.slice';
 
 import api from 'core/services/api.service';
 import {
