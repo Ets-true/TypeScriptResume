@@ -25,7 +25,7 @@ export function SignInPage(props: SignUpProps) {
             {({ handleSubmit, values, errors, handleChange }) => (
               <Form onSubmit={handleSubmit}>
                 <RowWrapper>
-                  <Col lg="4">
+                  <Col lg="5">
                     <Form.Group controlId="validationFormikUsername">
                       <Form.Label>Логин</Form.Label>
 
@@ -52,7 +52,7 @@ export function SignInPage(props: SignUpProps) {
                 </RowWrapper>
 
                 <RowWrapper className="mt-3">
-                  <Col lg="4">
+                  <Col lg="5">
                     <Form.Group controlId="validationCustom03">
                       <Form.Label>Пароль</Form.Label>
 
@@ -74,10 +74,12 @@ export function SignInPage(props: SignUpProps) {
 
                 <ActionsWrapper>
                   <Col lg="2">
-                    <Button type="submit">Войти</Button>
+                    <Button color="primary" type="submit">
+                      Войти
+                    </Button>
                   </Col>
 
-                  <Col lg="2" className="text-right">
+                  <Col lg="3" className="text-right">
                     <NavLink to={SignUpPage.route}>Зарегистрироваться</NavLink>
                   </Col>
                 </ActionsWrapper>
