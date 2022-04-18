@@ -2,21 +2,21 @@ import React from 'react';
 import tw, { styled } from 'twin.macro';
 import { useNavigate } from 'react-router-dom';
 
+import { colors } from 'core/ui/styles';
 import { HomePage } from 'app/home/home.page';
 
 import logoImage from './assets/logo.png';
+import { IoMdExit } from 'react-icons/io';
 import { CgProfile } from 'react-icons/cg';
 
-import { selectUser } from 'app/app.selectors';
-import { useAppSelector } from 'core/state/hooks';
+import { useAuth } from 'core/providers/auth.provider';
 import { getProfileRoute } from 'core/features/users/users.helpers';
-import { colors } from 'core/ui/styles';
 import env, { EnvNamesEnum } from 'core/services/env.service';
 
 interface AppBarProps {}
 
 export function AppBarComponent(props: AppBarProps) {
-  const user = useAppSelector(selectUser);
+  const { user, signOut } = useAuth();
   const navigate = useNavigate();
 
   const goToProfile = () => {
@@ -32,16 +32,24 @@ export function AppBarComponent(props: AppBarProps) {
         {env.get(EnvNamesEnum.companyName)}
       </LogoText>
       <ActionsWrapper>
-        <Button onClick={goToProfile}>
-          <CgProfile />
-        </Button>
+        {user && (
+          <Button onClick={goToProfile}>
+            <CgProfile />
+          </Button>
+        )}
+
+        {user && (
+          <Button onClick={signOut}>
+            <IoMdExit />
+          </Button>
+        )}
       </ActionsWrapper>
     </Wrapper>
   );
 }
 
 const Button = styled.div`
-  ${tw`cursor-pointer`};
+  ${tw`cursor-pointer ml-3`};
 
   color: ${colors('primary')};
   font-size: 18px;
