@@ -11,7 +11,6 @@ export function LayoutComponent(props: LayoutProps) {
     <React.StrictMode>
       <Wrapper data-testid="Layout">
         <AppBar />
-
         <Outlet />
       </Wrapper>
     </React.StrictMode>
