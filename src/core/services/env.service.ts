@@ -1,5 +1,6 @@
 export enum EnvNamesEnum {
   apiPrefix = 'API_PREFIX',
+  companyName = 'COMPANY_NAME',
 }
 
 interface EnvServiceInterface {

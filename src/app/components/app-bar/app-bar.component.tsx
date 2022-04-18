@@ -11,6 +11,7 @@ import { selectUser } from 'app/app.selectors';
 import { useAppSelector } from 'core/state/hooks';
 import { getProfileRoute } from 'core/features/users/users.helpers';
 import { colors } from 'core/ui/styles';
+import env, { EnvNamesEnum } from 'core/services/env.service';
 
 interface AppBarProps {}
 
@@ -24,10 +25,17 @@ export function AppBarComponent(props: AppBarProps) {
     }
   };
 
+  console.log('ENV: ', {
+    comp: env.get(EnvNamesEnum.companyName),
+    proc: process.env,
+  });
+
   return (
     <Wrapper data-testid="AppBar">
       <LogoImage src={logoImage} alt="Логотип" />
-      <LogoText onClick={() => navigate(HomePage.route)}>Бурочки</LogoText>
+      <LogoText onClick={() => navigate(HomePage.route)}>
+        {env.get(EnvNamesEnum.companyName)}
+      </LogoText>
       <ActionsWrapper>
         <Button onClick={goToProfile}>
           <CgProfile />
