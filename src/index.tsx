@@ -8,7 +8,6 @@ import { App } from './app';
 import { store } from './core/state/store';
 import * as serviceWorker from './serviceWorker';
 
-import './index.css';
 import { GlobalStyles } from 'core/ui/styles';
 
 const container = document.getElementById('root');
