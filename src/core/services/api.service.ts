@@ -5,7 +5,7 @@ import { DefaultResponse } from 'core/interfaces/response.interfaces';
 // Usage example
 /* 
   api
-    .get<any>(`${env.get('API_STORAGE_PREFIX')}/denm/get?page=0&size=6`)
+    .get<User>(`${env.get(EnvNamesEnum.apiPrefix)}/users`)
     .then((response) => response.json().then(console.log))
 */
 
