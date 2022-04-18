@@ -29,14 +29,13 @@ export function AppComponent() {
   return (
     <AuthProvider>
       <Routes>
-        <Route path={SignIn.route} element={<SignIn />} />
-        <Route path={SignUp.route} element={<SignUp />} />
-
-        {/* Protected routes */}
         <Route element={<Layout />}>
+          <Route path={SignIn.route} element={<SignIn />} />
+          <Route path={SignUp.route} element={<SignUp />} />
+
+          {/* Protected routes */}
           <Route path={HomePage.route} element={<HomeRoute />} />
         </Route>
-
         <Route path="*" element={<Navigate to={HomePage.route} />} />
       </Routes>
     </AuthProvider>
