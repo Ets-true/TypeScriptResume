@@ -18,7 +18,7 @@ export const appStateName = 'app';
 
 export const appInitialState: AppState = {
   user: null,
-  title: 'Initial title!!!',
+  title: '',
   authLoading: true,
 };
 
