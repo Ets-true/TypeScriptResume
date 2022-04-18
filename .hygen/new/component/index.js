@@ -19,7 +19,9 @@ module.exports = {
     return inquirer.prompt(questions).then((answers) => {
       const { component_name: componentName, dir } = answers;
 
-      const path = `${dir ? dir : 'src/app'}/${kebabize(componentName)}`;
+      const path = `${dir ? dir : 'src/app/components'}/${kebabize(
+        componentName
+      )}`;
       const componentFileName = `${kebabize(componentName)}.component`;
 
       return { ...answers, path, component_file_name: componentFileName };

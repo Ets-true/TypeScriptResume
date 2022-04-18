@@ -90,7 +90,7 @@ export function SignInPage(props: SignUpProps) {
   );
 }
 
-SignInPage.route = 'signin';
+SignInPage.route = '/signin';
 
 const StyledCard = styled(Card)`
   ${tw`mt-10`};
