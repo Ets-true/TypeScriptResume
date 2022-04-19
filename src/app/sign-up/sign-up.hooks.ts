@@ -3,7 +3,7 @@ import { useCallback, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import { useAppDispatch, useAppSelector } from 'core/state/hooks';
-import { HomePage } from 'app/home/home.page';
+import { HomeRoute } from 'app/home';
 
 import { selectUser } from 'app/app.selectors';
 import { postFormDataAction, SignUpFromData } from './sign-up.slice';
@@ -20,14 +20,14 @@ export function useSignUpFormManager() {
   const dispatch = useAppDispatch();
 
   const state = location.state as any;
-  let from = state?.from?.pathname || HomePage.route;
+  let from = state?.from?.pathname || HomeRoute.route;
 
   const handleSubmit = useCallback((formData: SignUpFromData) => {
     dispatch(
       postFormDataAction({
         formData,
         navigate() {
-          navigate(HomePage.route);
+          navigate(HomeRoute.route);
         },
       })
     );

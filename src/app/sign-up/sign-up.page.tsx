@@ -4,7 +4,7 @@ import { Button, Card, Col, Form, InputGroup, Row } from 'react-bootstrap';
 import tw, { styled } from 'twin.macro';
 
 import { Formik } from 'formik';
-import { SignInPage } from 'app/sign-in/sign-in.page';
+import { SignInRoute } from 'app/sign-in/sign-in.route';
 import { useSignUpFormManager } from './sign-up.hooks';
 
 interface SignUpProps {}
@@ -81,7 +81,7 @@ export function SignUpPage(props: SignUpProps) {
                   </Col>
 
                   <Col lg="3" className="text-right">
-                    <NavLink to={SignInPage.route}>Войти</NavLink>
+                    <NavLink to={SignInRoute.route}>Войти</NavLink>
                   </Col>
                 </ActionsWrapper>
               </Form>
@@ -92,8 +92,6 @@ export function SignUpPage(props: SignUpProps) {
     </StyledCard>
   );
 }
-
-SignUpPage.route = '/signup';
 
 const StyledCard = styled(Card)`
   ${tw`mt-10`};

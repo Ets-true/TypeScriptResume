@@ -7,3 +7,5 @@ export const HomeRoute = () => (
     <HomePage />
   </RequiredAuth>
 );
+
+HomeRoute.route = '/';

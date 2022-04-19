@@ -1,15 +1,13 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 import React, { useEffect } from 'react';
 
+import { SignInRoute } from './sign-in/sign-in.route';
+import { SignUpRoute } from './sign-up/sign-up.route';
 import { HomeRoute } from './home';
 
 import { startAppActoin } from './app.slice';
 import { selectAuthLoading } from './app.selectors';
 import { useAppDispatch, useAppSelector } from 'core/state/hooks';
-
-import { SignIn } from './sign-in';
-import { SignUp } from './sign-up';
-import { HomePage } from './home/home.page';
 
 import { StartLoader } from './components/start-loader';
 import { AuthProvider } from 'core/providers/auth.provider';
@@ -32,13 +30,13 @@ export function AppComponent() {
       <Routes>
         <Route element={<Layout />}>
           {/* Public routes */}
-          <Route path={SignIn.route} element={<SignIn />} />
-          <Route path={SignUp.route} element={<SignUp />} />
+          <Route path={SignInRoute.route} element={<SignInRoute />} />
+          <Route path={SignUpRoute.route} element={<SignUpRoute />} />
 
           {/* Protected routes */}
-          <Route path={HomePage.route} element={<HomeRoute />} />
+          <Route path={HomeRoute.route} element={<HomeRoute />} />
         </Route>
-        <Route path="*" element={<Navigate to={HomePage.route} />} />
+        <Route path="*" element={<Navigate to={HomeRoute.route} />} />
       </Routes>
     </AuthProvider>
   );
