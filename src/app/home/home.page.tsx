@@ -7,8 +7,6 @@ export function HomePage(props: HomeProps) {
   return <Wrapper data-testid="Home">Home</Wrapper>;
 }
 
-HomePage.route = '/';
-
 const Wrapper = styled.div`
   ${tw``};
 `;

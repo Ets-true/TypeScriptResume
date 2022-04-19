@@ -3,7 +3,7 @@ import tw, { styled } from 'twin.macro';
 import { useNavigate } from 'react-router-dom';
 
 import { colors } from 'core/ui/styles';
-import { HomePage } from 'app/home/home.page';
+import { HomeRoute } from 'app/home';
 
 import logoImage from './assets/logo.png';
 import { IoMdExit } from 'react-icons/io';
@@ -28,7 +28,7 @@ export function AppBarComponent(props: AppBarProps) {
   return (
     <Wrapper data-testid="AppBar">
       <LogoImage src={logoImage} alt="Логотип" />
-      <LogoText onClick={() => navigate(HomePage.route)}>
+      <LogoText onClick={() => navigate(HomeRoute.route)}>
         {env.get(EnvNamesEnum.companyName)}
       </LogoText>
       <ActionsWrapper>

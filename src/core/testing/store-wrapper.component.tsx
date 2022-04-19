@@ -6,10 +6,10 @@ import { AuthProvider } from 'core/providers/auth.provider';
 
 export const StoreWrapperComponent = (props: any) => {
   return (
-    <BrowserRouter>
-      <Provider store={store}>
+    <Provider store={store}>
+      <BrowserRouter>
         <AuthProvider>{props.children}</AuthProvider>
-      </Provider>
-    </BrowserRouter>
+      </BrowserRouter>
+    </Provider>
   );
 };

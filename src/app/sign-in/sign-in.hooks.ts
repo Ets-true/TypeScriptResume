@@ -3,7 +3,7 @@ import { useCallback, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import { useAppDispatch, useAppSelector } from 'core/state/hooks';
-import { HomePage } from 'app/home/home.page';
+import { HomeRoute } from 'app/home';
 
 import { signInAction, SignInFormData } from 'app/sign-in/sign-in.slice';
 import { selectUser } from 'app/app.selectors';
@@ -20,7 +20,7 @@ export function useSignInFormManager() {
   const dispatch = useAppDispatch();
 
   const state = location.state as any;
-  let from = state?.from?.pathname || HomePage.route;
+  let from = state?.from?.pathname || HomeRoute.route;
 
   const handleSubmit = useCallback((formData: SignInFormData) => {
     dispatch(signInAction(formData));
