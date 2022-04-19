@@ -16,6 +16,8 @@ export function <%= page_name %>Page(props: <%= page_name %>Props) {
   );
 }
 
+<%= page_name %>Page.route = '<%= kebab_name %>';
+
 const Wrapper = styled.div`
   ${tw``};
 `;
