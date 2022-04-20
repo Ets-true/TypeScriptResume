@@ -17,9 +17,10 @@ module.exports = {
       },
 
       {
-        type: 'input',
+        type: 'select',
         name: 'protected_route',
-        message: 'It is a protected route? (Y/n)',
+        message: 'It is a protected route?',
+        choices: ['yes', 'no'],
       },
     ];
 
@@ -34,17 +35,12 @@ module.exports = {
       camelName[0] = camelName[0].toLowerCase();
 
       const path = `${dir ? dir : 'src/app'}/${kebabize(pageName)}`;
+      const protected = protectedRoute === 'yes';
       const kebabName = `${kebabize(pageName)}`;
+      const sagaFileName = `${kebabize(pageName)}.saga`;
       const pageFileName = `${kebabize(pageName)}.page`;
       const routeFileName = `${kebabize(pageName)}.route`;
       const srcRelativePath = path.replace('src/', '');
-
-      const protected =
-        !protectedRoute ||
-        protectedRoute.toLowerCase() === 'yes' ||
-        protectedRoute.toLowerCase() === 'y'
-          ? true
-          : false;
 
       return {
         ...answers,
@@ -53,6 +49,7 @@ module.exports = {
 
         camel_name: camelName,
         kebab_name: kebabName,
+        saga_file_name: sagaFileName,
         page_file_name: pageFileName,
         route_file_name: routeFileName,
         src_relative_path: srcRelativePath,

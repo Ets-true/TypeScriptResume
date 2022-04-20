@@ -18,6 +18,6 @@ export function* watchClickSaga() {
   yield takeLatest(fetchUsers, workerSaga);
 }
 
-export default function* exampleSaga() {
+export function* exampleSaga() {
   yield watchClickSaga();
 }

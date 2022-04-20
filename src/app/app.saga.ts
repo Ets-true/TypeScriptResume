@@ -31,6 +31,6 @@ function* appStartWatcher() {
 }
 // ======================== /Start App =========================================
 
-export default function* appSagas() {
+export function* appSagas() {
   yield all([appStartWatcher()]);
 }
