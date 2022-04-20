@@ -36,7 +36,6 @@ export function AppComponent() {
           {/* Protected routes */}
           <Route path={HomeRoute.route} element={<HomeRoute />} />
         </Route>
-
         <Route path="*" element={<Navigate to={HomeRoute.route} />} />
       </Routes>
     </AuthProvider>
