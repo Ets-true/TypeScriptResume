@@ -1,21 +1,21 @@
 ---
-to: <%= path %>/__tests__/<%= page_file_name %>.test.tsx
+to: <%= path %>/__tests__/<%= module_file_name %>.test.tsx
 ---
 import React from 'react';
 import { StoreWrapper } from 'core/testing';
 import { render, screen } from '@testing-library/react';
 
-import { <%= page_name %> } from '../';
+import { <%= module_name %> } from '../';
 
-describe('Page <<%= page_name %> />', () => {
+describe('Module <<%= module_name %> />', () => {
   it('should be in the document', () => {
     render(
       <StoreWrapper>
-        <<%= page_name %> />
+        <<%= module_name %> />
       </StoreWrapper>
     );
 
-    const element = screen.getByTestId(/<%= page_name %>/i);
+    const element = screen.getByTestId(/<%= module_name %>/i);
 
     expect(element).toBeInTheDocument();
   });

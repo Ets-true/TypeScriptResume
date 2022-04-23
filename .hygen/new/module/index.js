@@ -6,14 +6,14 @@ module.exports = {
     const questions = [
       {
         type: 'input',
-        name: 'page_name',
-        message: 'What is the page component name? ("Ui", "Auth", ...)',
+        name: 'module_name',
+        message: 'What is the module component name? ("Ui", "Auth", ...)',
       },
 
       {
         type: 'input',
         name: 'dir',
-        message: 'Location of the page? ("src/app")',
+        message: 'Location of the module? ("src/app")',
       },
 
       {
@@ -22,24 +22,32 @@ module.exports = {
         message: 'It is a protected route?',
         choices: ['yes', 'no'],
       },
+
+      {
+        type: 'input',
+        name: 'route',
+        message: 'Enter route name ("home", "..."). Empty to use module name:',
+      },
     ];
 
     return inquirer.prompt(questions).then((answers) => {
       const {
         dir,
-        page_name: pageName,
+        route,
+        module_name: moduleName,
         protected_route: protectedRoute,
       } = answers;
 
-      let camelName = `${camelize(kebabize(pageName))}`;
+      let camelName = `${camelize(kebabize(moduleName))}`;
       camelName[0] = camelName[0].toLowerCase();
 
-      const path = `${dir ? dir : 'src/app'}/${kebabize(pageName)}`;
+      const path = `${dir ? dir : 'src/app'}/${kebabize(moduleName)}`;
       const protected = protectedRoute === 'yes';
-      const kebabName = `${kebabize(pageName)}`;
-      const sagaFileName = `${kebabize(pageName)}.saga`;
-      const pageFileName = `${kebabize(pageName)}.page`;
-      const routeFileName = `${kebabize(pageName)}.route`;
+      const kebabName = `${kebabize(moduleName)}`;
+      const kebabRoute = `${kebabize(route || moduleName)}`;
+      const sagaFileName = `${kebabize(moduleName)}.saga`;
+      const moduleFileName = `${kebabize(moduleName)}.module`;
+      const routeFileName = `${kebabize(moduleName)}.route`;
       const srcRelativePath = path.replace('src/', '');
 
       return {
@@ -49,8 +57,9 @@ module.exports = {
 
         camel_name: camelName,
         kebab_name: kebabName,
+        kebab_route: kebabRoute,
         saga_file_name: sagaFileName,
-        page_file_name: pageFileName,
+        module_file_name: moduleFileName,
         route_file_name: routeFileName,
         src_relative_path: srcRelativePath,
       };
