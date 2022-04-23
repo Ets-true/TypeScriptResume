@@ -3,11 +3,11 @@ to: <%= path %>/<%= kebab_name %>.slice.tsx
 ---
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-export interface <%= page_name %>State {
+export interface <%= module_name %>State {
   loading: boolean;
 }
 
-export const <%= camel_name %>InitialState: <%= page_name %>State = {
+export const <%= camel_name %>InitialState: <%= module_name %>State = {
   loading: false,
 };
 

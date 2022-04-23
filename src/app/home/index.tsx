@@ -1,2 +1,2 @@
-export { HomePage as Home } from './home.page';
+export { HomeModule as Home } from './home.module';
 export { HomeRoute } from './home.route';

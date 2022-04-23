@@ -3,7 +3,7 @@ import tw, { styled } from 'twin.macro';
 
 interface HomeProps {}
 
-export function HomePage(props: HomeProps) {
+export function HomeModule(props: HomeProps) {
   return <Wrapper data-testid="Home">Home</Wrapper>;
 }
 

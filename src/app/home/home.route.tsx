@@ -1,10 +1,10 @@
 import React from 'react';
 import { RequiredAuth } from 'core/components';
-import { HomePage } from './home.page';
+import { HomeModule } from './home.module';
 
 export const HomeRoute = () => (
   <RequiredAuth>
-    <HomePage />
+    <HomeModule />
   </RequiredAuth>
 );
 
