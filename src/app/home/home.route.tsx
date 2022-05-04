@@ -8,4 +8,4 @@ export const HomeRoute = () => (
   </RequiredAuth>
 );
 
-HomeRoute.route = '/';
+HomeRoute.route = '/home';
