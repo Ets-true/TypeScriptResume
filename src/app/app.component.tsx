@@ -4,6 +4,8 @@ import React, { useEffect } from 'react';
 import { SignInRoute } from './sign-in/sign-in.route';
 import { SignUpRoute } from './sign-up/sign-up.route';
 import { HomeRoute } from './home';
+import { ProfileEditRoute } from 'app/profile/profile-edit/profile-edit.route';
+import { ProfileRoute } from 'app/profile/profile.route';
 
 import { startAppActoin } from './app.slice';
 import { selectAuthLoading } from './app.selectors';
@@ -35,6 +37,8 @@ export function AppComponent() {
 
           {/* Protected routes */}
           <Route path={HomeRoute.route} element={<HomeRoute />} />
+          <Route path={ProfileRoute.route} element={<ProfileRoute />} />
+          <Route path={ProfileEditRoute.route} element={<ProfileEditRoute />} />
         </Route>
         <Route path="*" element={<Navigate to={HomeRoute.route} />} />
       </Routes>

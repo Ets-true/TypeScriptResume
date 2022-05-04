@@ -1,3 +1,5 @@
+import * as profileEdit from 'app/profile/profile-edit/profile-edit.slice';
+import * as profile from 'app/profile/profile.slice';
 import { SignUpActionsEnum } from '../../app/sign-up/sign-up.slice';
 import createSagaMiddleware from 'redux-saga';
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
@@ -14,6 +16,8 @@ const sagaMiddleware = createSagaMiddleware();
 
 export const initialRootState: RootState = {
   app: app.appInitialState,
+  profileEdit: profileEdit.profileEditInitialState,
+  profile: profile.profileInitialState,
   home: home.homeInitialState,
   signIn: signIn.signInInitialState,
   signUp: signUp.signUpInitialState,
@@ -24,6 +28,8 @@ export const initialRootState: RootState = {
 export const store = configureStore({
   reducer: {
     app: app.reducer,
+    profileEdit: profileEdit.reducer,
+    profile: profile.reducer,
     home: home.reducer,
     signUp: signUp.reducer,
     signIn: signIn.reducer,
