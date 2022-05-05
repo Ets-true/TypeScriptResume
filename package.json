@@ -39,8 +39,9 @@
     "test": "react-scripts test",
     "test:e2e": "react-scripts test --watchAll -- --config jest.config.ts",
     "eject": "react-scripts eject",
-    "new:component": "hygen new component",
     "new:module": "hygen new module",
+    "new:feature": "hygen new feature",
+    "new:component": "hygen new component",
     "storybook": "start-storybook -p 6006 -s public",
     "prepare": "husky install",
     "build-storybook": "build-storybook -s public"
