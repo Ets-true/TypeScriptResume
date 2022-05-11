@@ -12,25 +12,17 @@ export function StartLoaderComponent({ show }: StartLoaderProps) {
   return (
     <Transition in={show} timeout={duration}>
       {(state) => (
-        <Wrapper data-testid="StartLoader" className={`fade-${state}`}>
-          <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-          </ul>
-        </Wrapper>
+        <HeartLoader data-testid="StartLoader" className={`fade-${state}`}>
+          <div className="lds-heart">
+            <div />
+          </div>
+        </HeartLoader>
       )}
     </Transition>
   );
 }
 
-const Wrapper = styled.div`
+const HeartLoader = styled.div`
   ${tw`w-full h-full flex items-center justify-center absolute z-10 opacity-0 bg-white`};
 
   transition: opacity ${duration}ms ease-in-out;
@@ -54,52 +46,58 @@ const Wrapper = styled.div`
     }
   }
 
-  ul {
-    width: 108px;
-    height: 108px;
-    list-style-type: none;
-    display: flex;
-    flex-wrap: wrap;
+  .lds-heart {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+    transform: rotate(45deg);
+    transform-origin: 40px 40px;
   }
-
-  ul li {
-    width: 30px;
-    height: 30px;
-    margin: 2px;
-    background-color: transparent;
-    animation: loading 0.8s infinite;
+  .lds-heart div {
+    top: 32px;
+    left: 32px;
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    background-color: #ec407a;
+    animation: lds-heart 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
   }
-
-  ul li:nth-of-type(5) {
-    opacity: 0;
+  .lds-heart div:after,
+  .lds-heart div:before {
+    content: ' ';
+    position: absolute;
+    display: block;
+    width: 32px;
+    height: 32px;
+    background-color: #ec407a;
   }
-  ul li:nth-of-type(1) {
-    animation-delay: 0.1s;
+  .lds-heart div:before {
+    left: -24px;
+    border-radius: 50% 0 0 50%;
   }
-  ul li:nth-of-type(2) {
-    animation-delay: 0.2s;
+  .lds-heart div:after {
+    top: -24px;
+    border-radius: 50% 50% 0 0;
   }
-  ul li:nth-of-type(3) {
-    animation-delay: 0.3s;
-  }
-  ul li:nth-of-type(6) {
-    animation-delay: 0.4s;
-  }
-  ul li:nth-of-type(9) {
-    animation-delay: 0.5s;
-  }
-  ul li:nth-of-type(8) {
-    animation-delay: 0.6s;
-  }
-  ul li:nth-of-type(7) {
-    animation-delay: 0.7s;
-  }
-  ul li:nth-of-type(4) {
-    animation-delay: 0.8s;
-  }
-  @keyframes loading {
-    1% {
-      background-color: #ec407a;
+  @keyframes lds-heart {
+    0% {
+      transform: scale(0.95);
+    }
+    5% {
+      transform: scale(1.1);
+    }
+    39% {
+      transform: scale(0.85);
+    }
+    45% {
+      transform: scale(1);
+    }
+    60% {
+      transform: scale(0.95);
+    }
+    100% {
+      transform: scale(0.9);
     }
   }
 `;
