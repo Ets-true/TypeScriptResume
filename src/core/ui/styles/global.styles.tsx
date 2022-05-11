@@ -1,6 +1,6 @@
 import React from 'react';
 import { createGlobalStyle } from 'styled-components';
-import tw, { GlobalStyles as BaseStyles } from 'twin.macro';
+import tw from 'twin.macro';
 import { colors } from './colors';
 
 import 'index.css';
@@ -9,16 +9,16 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const CustomStyles = createGlobalStyle`
   body, html, #root {
-    font-family: 'Roboto';
+    ${tw`h-full w-full`};
+
     color: ${colors('text')};
-    ${tw`h-full w-full`}
+    font-family: 'Roboto';
   }
 `;
 
 export function GlobalStylesComponent() {
   return (
     <>
-      <BaseStyles />
       <CustomStyles />
     </>
   );
