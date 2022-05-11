@@ -12,85 +12,95 @@ export function SignInPage(props: SignUpProps) {
   const { handleSubmit, initialValues, schema } = useSignInFormManager();
 
   return (
-    <StyledCard data-testid="SignIn">
-      <Card.Header>Вход</Card.Header>
+    <RowWrapper>
+      <Col lg="5">
+        <StyledCard data-testid="SignIn">
+          <Card.Header>Вход</Card.Header>
 
-      <Card.Body>
-        <FormWrapper>
-          <Formik
-            onSubmit={handleSubmit}
-            initialValues={initialValues}
-            validationSchema={schema}
-          >
-            {({ handleSubmit, values, errors, handleChange }) => (
-              <Form onSubmit={handleSubmit}>
-                <RowWrapper>
-                  <Col lg="5">
-                    <Form.Group controlId="validationFormikUsername">
-                      <Form.Label>Логин</Form.Label>
+          <Card.Body>
+            <FormWrapper>
+              <Formik
+                onSubmit={handleSubmit}
+                initialValues={initialValues}
+                validationSchema={schema}
+              >
+                {({ handleSubmit, values, errors, handleChange }) => (
+                  <Form onSubmit={handleSubmit}>
+                    <RowWrapper>
+                      <Col>
+                        <Form.Group controlId="validationFormikUsername">
+                          <Form.Label>Логин</Form.Label>
 
-                      <InputGroup hasValidation>
-                        <InputGroup.Text id="inputGroupPrepend">
-                          @
-                        </InputGroup.Text>
+                          <InputGroup hasValidation>
+                            <InputGroup.Text id="inputGroupPrepend">
+                              @
+                            </InputGroup.Text>
 
-                        <Form.Control
-                          type="text"
-                          placeholder="login"
-                          name="login"
-                          value={values.login}
-                          onChange={handleChange}
-                          isInvalid={!!errors.login}
-                        />
+                            <Form.Control
+                              type="text"
+                              placeholder="login"
+                              name="login"
+                              value={values.login}
+                              onChange={handleChange}
+                              isInvalid={!!errors.login}
+                            />
 
-                        <Form.Control.Feedback type="invalid">
-                          {errors.login}
-                        </Form.Control.Feedback>
-                      </InputGroup>
-                    </Form.Group>
-                  </Col>
-                </RowWrapper>
+                            <Form.Control.Feedback type="invalid">
+                              {errors.login}
+                            </Form.Control.Feedback>
+                          </InputGroup>
+                        </Form.Group>
+                      </Col>
+                    </RowWrapper>
 
-                <RowWrapper className="mt-3">
-                  <Col lg="5">
-                    <Form.Group controlId="validationCustom03">
-                      <Form.Label>Пароль</Form.Label>
+                    <RowWrapper className="mt-3">
+                      <Col>
+                        <Form.Group controlId="validationCustom03">
+                          <Form.Label>Пароль</Form.Label>
 
-                      <Form.Control
-                        name="password"
-                        type="password"
-                        placeholder="Password"
-                        value={values.password}
-                        onChange={handleChange}
-                        isInvalid={!!errors.password}
-                      />
+                          <Form.Control
+                            name="password"
+                            type="password"
+                            placeholder="Password"
+                            value={values.password}
+                            onChange={handleChange}
+                            isInvalid={!!errors.password}
+                          />
 
-                      <Form.Control.Feedback type="invalid">
-                        {errors.password}
-                      </Form.Control.Feedback>
-                    </Form.Group>
-                  </Col>
-                </RowWrapper>
+                          <Form.Control.Feedback type="invalid">
+                            {errors.password}
+                          </Form.Control.Feedback>
+                        </Form.Group>
+                      </Col>
+                    </RowWrapper>
 
-                <ActionsWrapper>
-                  <Col lg="2">
-                    <Button color="primary" type="submit">
-                      Войти
-                    </Button>
-                  </Col>
+                    <ActionsWrapper>
+                      <Col>
+                        <Button color="primary" type="submit">
+                          Войти
+                        </Button>
+                      </Col>
 
-                  <Col lg="3" className="text-right">
-                    <NavLink to={SignUpRoute.route}>Зарегистрироваться</NavLink>
-                  </Col>
-                </ActionsWrapper>
-              </Form>
-            )}
-          </Formik>
-        </FormWrapper>
-      </Card.Body>
-    </StyledCard>
+                      <LinkCol>
+                        <NavLink to={SignUpRoute.route}>
+                          Зарегистрироваться
+                        </NavLink>
+                      </LinkCol>
+                    </ActionsWrapper>
+                  </Form>
+                )}
+              </Formik>
+            </FormWrapper>
+          </Card.Body>
+        </StyledCard>
+      </Col>
+    </RowWrapper>
   );
 }
+
+const LinkCol = styled(Col)`
+  ${tw`lg:text-right md:text-right sm:text-right`};
+`;
 
 const StyledCard = styled(Card)`
   ${tw`mt-10`};
