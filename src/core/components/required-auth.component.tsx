@@ -1,8 +1,9 @@
 import React from 'react';
+import { Navigate, useLocation } from 'react-router-dom';
+
 import { useAuth } from 'core/providers/auth.provider';
 import { SignInRoute } from 'app/sign-in/sign-in.route';
 import { isRequiredAuth } from 'core/helpers/is-required-auth';
-import { Navigate, useLocation } from 'react-router-dom';
 
 interface RequiredAuthProps {
   children: React.ReactElement;
@@ -11,6 +12,7 @@ export function RequiredAuthComponent({ children }: RequiredAuthProps) {
   const auth = useAuth();
   const location = useLocation();
 
+  // REACT_APP_AUTH_REQUIRED="false"
   if (!isRequiredAuth()) {
     return children;
   }

@@ -11,16 +11,12 @@ const CustomStyles = createGlobalStyle`
   body, html, #root {
     ${tw`h-full w-full`};
 
-    color: ${colors('text')};
+    color: ${colors('mainText')};
     font-family: 'Roboto';
   }
 
   input {
     border: 1px solid #c6c6c6;
-  }
-
-  a {
-    ${tw`text-blue-500`}
   }
 `;
 

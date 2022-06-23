@@ -1,19 +1,20 @@
-import { Navigate, Route, Routes } from 'react-router-dom';
 import React, { useEffect } from 'react';
+import { Navigate, Route, Routes } from 'react-router-dom';
 
+import { HomeRoute } from './home';
 import { SignInRoute } from './sign-in/sign-in.route';
 import { SignUpRoute } from './sign-up/sign-up.route';
-import { HomeRoute } from './home';
-import { ProfileEditRoute } from 'app/profile/profile-edit/profile-edit.route';
 import { ProfileRoute } from 'app/profile/profile.route';
+import { ProfileEditRoute } from 'app/profile/profile-edit/profile-edit.route';
 
 import { startAppActoin } from './app.slice';
 import { selectAuthLoading } from './app.selectors';
 import { useAppDispatch, useAppSelector } from 'core/state/hooks';
 
+import { Layout } from './components/layout';
 import { StartLoader } from './components/start-loader';
 import { AuthProvider } from 'core/providers/auth.provider';
-import { Layout } from './components/layout';
+import { isRequiredAuth } from 'core/helpers/is-required-auth';
 
 export function AppComponent() {
   const dispatch = useAppDispatch();
@@ -32,8 +33,10 @@ export function AppComponent() {
       <Routes>
         <Route element={<Layout />}>
           {/* Public routes */}
-          <Route path={SignInRoute.route} element={<SignInRoute />} />
-          <Route path={SignUpRoute.route} element={<SignUpRoute />} />
+          {isRequiredAuth() && [
+            <Route path={SignInRoute.route} element={<SignInRoute />} />,
+            <Route path={SignUpRoute.route} element={<SignUpRoute />} />,
+          ]}
 
           {/* Protected routes */}
           <Route path={HomeRoute.route} element={<HomeRoute />} />

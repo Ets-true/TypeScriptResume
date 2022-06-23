@@ -12,6 +12,7 @@ export interface AppState {
   user: User | null;
   title: string;
   authLoading: boolean;
+  showSidebar: boolean;
 }
 
 export const appStateName = 'app';
@@ -20,6 +21,7 @@ export const appInitialState: AppState = {
   user: null,
   title: '',
   authLoading: true,
+  showSidebar: true,
 };
 
 const appSlice = createSlice({
@@ -37,6 +39,10 @@ const appSlice = createSlice({
 
     setAuthLoader(state, action: PayloadAction<boolean>) {
       state.authLoading = action.payload;
+    },
+
+    toggleSidebar(state) {
+      state.showSidebar = !state.showSidebar;
     },
   },
 });
