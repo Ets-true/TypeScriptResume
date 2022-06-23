@@ -95,6 +95,7 @@
     "@types/react": "^18.0.14",
     "@types/react-dom": "^18.0.5",
     "@types/react-redux": "^7.1.24",
+    "@types/react-transition-group": "^4.4.5",
     "@types/styled-components": "^5.1.24",
     "expect-puppeteer": "^6.1.0",
     "husky": "^8.0.1",

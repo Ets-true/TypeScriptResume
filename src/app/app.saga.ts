@@ -7,15 +7,18 @@ import { startAppActoin } from './app.slice';
 import { CheckAuthResponse } from 'core/features/users/users.constants';
 import { removeStorageToken } from 'core/hooks/use-token';
 import { asyncTimeout } from 'core/helpers/async-timeout';
+import { isRequiredAuth } from 'core/helpers/is-required-auth';
 
 // ======================== Start App ==========================================
 function* appStartWorker(): any {
   try {
-    yield put(actions.setAuthLoader(true));
-    const data: CheckAuthResponse = yield call(checkAuth);
+    if (isRequiredAuth()) {
+      yield put(actions.setAuthLoader(true));
+      const data: CheckAuthResponse = yield call(checkAuth);
 
-    if (data.user) {
-      yield put(actions.updateUser(data.user));
+      if (data.user) {
+        yield put(actions.updateUser(data.user));
+      }
     }
   } catch (e) {
     removeStorageToken();
