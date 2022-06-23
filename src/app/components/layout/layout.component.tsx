@@ -1,5 +1,4 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
 import { Outlet } from 'react-router-dom';
 import tw, { styled } from 'twin.macro';
 import { AppBar } from '../app-bar';
@@ -17,6 +16,6 @@ export function LayoutComponent(props: LayoutProps) {
   );
 }
 
-const Wrapper = styled(Container)`
+const Wrapper = styled.main`
   ${tw`h-full flex flex-col`}
 `;

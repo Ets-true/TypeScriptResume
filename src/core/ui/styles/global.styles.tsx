@@ -1,10 +1,10 @@
 import React from 'react';
 import { createGlobalStyle } from 'styled-components';
-import tw from 'twin.macro';
+import tw, { GlobalStyles as BaseStyles } from 'twin.macro';
+
 import { colors } from './colors';
 
 import 'index.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-toastify/dist/ReactToastify.css';
 
 const CustomStyles = createGlobalStyle`
@@ -14,11 +14,20 @@ const CustomStyles = createGlobalStyle`
     color: ${colors('text')};
     font-family: 'Roboto';
   }
+
+  input {
+    border: 1px solid #c6c6c6;
+  }
+
+  a {
+    ${tw`text-blue-500`}
+  }
 `;
 
 export function GlobalStylesComponent() {
   return (
     <>
+      <BaseStyles />
       <CustomStyles />
     </>
   );

@@ -1,11 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Button, Card, Col, Form, InputGroup, Row } from 'react-bootstrap';
 import tw, { styled } from 'twin.macro';
 
-import { Formik } from 'formik';
+import { ErrorMessage, Field, Formik, Form } from 'formik';
 import { SignInRoute } from 'app/sign-in/sign-in.route';
 import { useSignUpFormManager } from './sign-up.hooks';
+import { RainbowButton } from 'core/ui/components/rainbow-button';
 
 interface SignUpProps {}
 
@@ -13,104 +13,68 @@ export function SignUpPage(props: SignUpProps) {
   const { handleSubmit, initialValues, schema } = useSignUpFormManager();
 
   return (
-    <RowWrapper>
-      <Col lg="5">
-        <StyledCard data-testid="SignUp">
-          <Card.Header>Регистрация</Card.Header>
+    <Wrapper data-testid="SignUp">
+      <Title>Вход</Title>
 
-          <Card.Body>
-            <FormWrapper>
-              <Formik
-                onSubmit={handleSubmit}
-                initialValues={initialValues}
-                validationSchema={schema}
-              >
-                {({ handleSubmit, values, errors, handleChange }) => (
-                  <Form onSubmit={handleSubmit}>
-                    <RowWrapper>
-                      <Col>
-                        <Form.Group controlId="validationFormikUsername">
-                          <Form.Label>Логин</Form.Label>
+      <FormWrapper>
+        <Formik
+          onSubmit={handleSubmit}
+          initialValues={initialValues}
+          validationSchema={schema}
+        >
+          {() => {
+            return (
+              <Form>
+                <label>
+                  Email: <Field type="email" name="email" />
+                  <ErrorMessage name="email" component="div" />
+                </label>
+                <label>
+                  Password:
+                  <Field type="password" name="password" />
+                  <ErrorMessage name="password" component="div" />
+                </label>
 
-                          <InputGroup hasValidation>
-                            <InputGroup.Text id="inputGroupPrepend">
-                              @
-                            </InputGroup.Text>
-
-                            <Form.Control
-                              type="text"
-                              placeholder="login"
-                              name="login"
-                              value={values.login}
-                              onChange={handleChange}
-                              isInvalid={!!errors.login}
-                            />
-
-                            <Form.Control.Feedback type="invalid">
-                              {errors.login}
-                            </Form.Control.Feedback>
-                          </InputGroup>
-                        </Form.Group>
-                      </Col>
-                    </RowWrapper>
-
-                    <RowWrapper className="mt-3">
-                      <Col>
-                        <Form.Group controlId="validationCustom03">
-                          <Form.Label>Пароль</Form.Label>
-
-                          <Form.Control
-                            name="password"
-                            type="password"
-                            placeholder="Password"
-                            value={values.password}
-                            onChange={handleChange}
-                            isInvalid={!!errors.password}
-                          />
-
-                          <Form.Control.Feedback type="invalid">
-                            {errors.password}
-                          </Form.Control.Feedback>
-                        </Form.Group>
-                      </Col>
-                    </RowWrapper>
-
-                    <ActionsWrapper>
-                      <Col lg="2">
-                        <Button color="primary" type="submit">
-                          Зарегестрироваться
-                        </Button>
-                      </Col>
-
-                      <LinkCol>
-                        <NavLink to={SignInRoute.route}>Войти</NavLink>
-                      </LinkCol>
-                    </ActionsWrapper>
-                  </Form>
-                )}
-              </Formik>
-            </FormWrapper>
-          </Card.Body>
-        </StyledCard>
-      </Col>
-    </RowWrapper>
+                <ActionsWrapper>
+                  <RainbowButton type="submit">
+                    Зарегистрироваться
+                  </RainbowButton>
+                  <NavLink to={SignInRoute.route}>Войти</NavLink>
+                </ActionsWrapper>
+              </Form>
+            );
+          }}
+        </Formik>
+      </FormWrapper>
+    </Wrapper>
   );
 }
 
-const LinkCol = styled(Col)`
-  ${tw`lg:text-right md:text-right sm:text-right`};
+const ActionsWrapper = styled.div`
+  ${tw`flex justify-between items-center mt-4`}
 `;
 
-const StyledCard = styled(Card)`
-  ${tw`mt-10`};
+const FormWrapper = styled.div`
+  form {
+    ${tw`flex flex-col`}
+
+    label {
+      ${tw`my-2`}
+
+      div {
+        ${tw`text-red-300`};
+      }
+    }
+
+    input {
+      ${tw`w-full`}
+    }
+  }
 `;
 
-const RowWrapper = styled(Row)`
-  ${tw`justify-center`};
-`;
+const Title = styled.span``;
 
-const ActionsWrapper = styled(Row)`
-  ${tw`!mt-3 items-center justify-center`};
+const Wrapper = styled.div`
+  ${tw`flex flex-col m-auto `};
+  width: 500px;
 `;
-
-const FormWrapper = styled.div``;
