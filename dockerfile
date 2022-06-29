@@ -1,9 +1,12 @@
 FROM node:16.4.2-alpine3.14 as build
 WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
+
 COPY package.json ./
 COPY yarn.lock ./
+
 RUN yarn install
+
 COPY . ./
 RUN yarn run build && yarn cache clean
 
