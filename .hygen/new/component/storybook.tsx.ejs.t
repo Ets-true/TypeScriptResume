@@ -1,5 +1,5 @@
 ---
-to: <%= path %>/<%= component_file_name %>.stories.tsx
+to: "<%= generateStory ? `${path}/${component_file_name}.stories.tsx` : null %>"
 ---
 import React from 'react'
 import { Story, Meta } from '@storybook/react'
