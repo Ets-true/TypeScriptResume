@@ -1,5 +1,5 @@
 ---
-to: <%= path %>/__tests__/<%= component_file_name %>.test.tsx
+to: "<%= generateTest ? `${path}/__tests__/${component_file_name}.test.tsx` : null %>"
 ---
 import React from 'react'
 import { render, screen } from '@testing-library/react'
