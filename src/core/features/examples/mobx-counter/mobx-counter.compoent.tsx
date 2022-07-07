@@ -1,15 +1,18 @@
 import tw, { styled } from 'twin.macro';
 import { observer } from 'mobx-react-lite';
+import { useMobxStores } from 'core/hooks/use-mobx-stores.hook';
 
 interface MobxCounterComponentProps {}
 
 export const MobxCounterComponent = observer(
   (props: MobxCounterComponentProps) => {
+    const { mobxCounter } = useMobxStores();
+
     return (
       <Wrapper>
-        <Button>+</Button>
-        <Value></Value>
-        <Button>-</Button>
+        <Button onClick={() => mobxCounter.increment()}>+</Button>
+        <Value>{mobxCounter.value}</Value>
+        <Button onClick={() => mobxCounter.decrement()}>-</Button>
       </Wrapper>
     );
   }

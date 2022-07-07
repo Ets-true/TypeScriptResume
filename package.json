@@ -78,6 +78,8 @@
     ]
   },
   "devDependencies": {
+    "mobx-devtools-mst": "^0.9.30",
+    "mobx-state-tree": "^5.1.5",
     "@storybook/addon-actions": "^6.5.9",
     "@storybook/addon-essentials": "^6.5.9",
     "@storybook/addon-interactions": "^6.5.9",

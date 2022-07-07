@@ -5,10 +5,11 @@ import { BrowserRouter } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 
 import { App } from './app';
-import { reduxStore } from './core/state/redux-store';
+import { reduxStore } from './core/state/redux.store';
 import * as serviceWorker from './serviceWorker';
 
 import { GlobalStyles } from 'core/ui/styles';
+import { MobxStoreProvider } from 'core/state/mobx.store';
 
 const container = document.getElementById('root');
 
@@ -20,23 +21,25 @@ const root = createRoot(container);
 
 root.render(
   <Provider store={reduxStore}>
-    <BrowserRouter>
-      <GlobalStyles />
+    <MobxStoreProvider>
+      <BrowserRouter>
+        <GlobalStyles />
 
-      <App />
+        <App />
 
-      <ToastContainer
-        position="bottom-right"
-        autoClose={1000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
-    </BrowserRouter>
+        <ToastContainer
+          position="bottom-right"
+          autoClose={1000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
+      </BrowserRouter>
+    </MobxStoreProvider>
   </Provider>
 );
 

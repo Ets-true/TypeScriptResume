@@ -1,4 +1,4 @@
-import { RootReduxState } from 'core/state/redux-store';
+import { RootReduxState } from 'core/state/redux.store';
 
 export const selectUser = (state: RootReduxState) => state.app.user;
 export const selectTitle = (state: RootReduxState) => state.app.title;

@@ -1,4 +1,4 @@
-import { initialRootState, RootReduxState } from 'core/state/redux-store';
+import { initialRootState, RootReduxState } from 'core/state/redux.store';
 import * as selectors from '../sign-up.selectors';
 
 describe('SignUp Selectors', () => {

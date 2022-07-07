@@ -1,5 +1,5 @@
 import { toast } from 'react-toastify';
-import { getStorageToken } from 'core/hooks/use-token';
+import { getStorageToken } from 'core/hooks/use-token.hook';
 import { DefaultResponse } from 'core/interfaces/response.interfaces';
 
 // Usage example

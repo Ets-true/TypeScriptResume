@@ -1,18 +1,28 @@
-import { observable } from 'mobx';
-import { RootMobxStore } from 'core/state/mobx-store';
+import { RootMobxStore } from 'core/state/mobx.store';
+import { action, makeObservable, observable } from 'mobx';
 
-export interface MobxCounterStoreInterface {
+export interface MobxCounterStoreModel {
   value: number;
+
+  increment(): void;
+  decrement(): void;
 }
 
-class MobxCounterStore implements MobxCounterStoreInterface {
-  private rootState?: RootMobxStore;
+export class MobxCounterStore implements MobxCounterStoreModel {
+  private rootState: RootMobxStore;
 
   @observable value = 0;
 
-  constructor(rootStore?: RootMobxStore) {
+  constructor(rootStore: RootMobxStore) {
     this.rootState = rootStore;
+    makeObservable(this);
+  }
+
+  @action increment() {
+    this.value = this.value + 1;
+  }
+
+  @action decrement() {
+    this.value = this.value - 1;
   }
 }
-
-export default new MobxCounterStore();
