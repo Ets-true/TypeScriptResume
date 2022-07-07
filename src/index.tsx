@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 
 import { App } from './app';
-import { store } from './core/state/store';
+import { reduxStore } from './core/state/redux-store';
 import * as serviceWorker from './serviceWorker';
 
 import { GlobalStyles } from 'core/ui/styles';
@@ -19,7 +19,7 @@ if (!container) {
 const root = createRoot(container);
 
 root.render(
-  <Provider store={store}>
+  <Provider store={reduxStore}>
     <BrowserRouter>
       <GlobalStyles />
 

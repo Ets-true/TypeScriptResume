@@ -1,8 +1,8 @@
-import { initialRootState, RootState } from 'core/state/store';
+import { initialRootState, RootReduxState } from 'core/state/redux-store';
 import * as selectors from '../profile.selectors';
 
 describe('Profile Selectors', () => {
-  let state: RootState;
+  let state: RootReduxState;
 
   beforeEach(() => {
     state = initialRootState;
