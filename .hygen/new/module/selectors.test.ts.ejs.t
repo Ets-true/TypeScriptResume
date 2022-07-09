@@ -1,10 +1,10 @@
 ---
-to: <%= path %>/__tests__/<%= kebab_name %>.selectors.test.tsx
+to: "<%= stateType === 'Redux' ? `${path}/__tests__/${kebabName}.selectors.test.tsx` : null %>"
 ---
 import { initialRootState, RootState } from 'core/state/store';
-import * as selectors from '../<%= kebab_name %>.selectors';
+import * as selectors from '../<%= kebabName %>.selectors';
 
-describe('<%= module_name %> Selectors', () => {
+describe('<%= moduleName %> Selectors', () => {
   let state: RootState;
 
   beforeEach(() => {

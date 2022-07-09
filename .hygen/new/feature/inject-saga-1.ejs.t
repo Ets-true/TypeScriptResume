@@ -1,5 +1,5 @@
 ---
-to: src/core/state/saga.ts
+to: <%= (stateType === 'Redux' && 'src/core/state/saga.ts') || null %>
 inject: true
 after: "appSagas\\(\\),"
 ---

@@ -1,6 +1,6 @@
 ---
-to: <%= path %>/<%= kebab_name %>.selectors.tsx
+to: "<%= stateType === 'Redux' ? `${path}/${kebabName}.selectors.ts` : null %>"
 ---
 import { RootState } from 'core/state/store';
 
-export const selectLoading = (state: RootState) => state.<%= camel_name %>.loading;
+export const selectLoading = (state: RootState) => state.<%= camelName %>.loading;

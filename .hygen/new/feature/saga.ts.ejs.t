@@ -1,5 +1,5 @@
 ---
-to: <%= path %>/<%= h.changeCase.param(pluralName) %>.saga.tsx
+to: <%= (stateType === 'Redux' && `${path}/${h.changeCase.param(pluralName)}.saga.tsx`) || null %>
 ---
 import { call, takeLatest, put, all } from 'redux-saga/effects';
 

@@ -1,12 +1,14 @@
-const kebabize = require('../../kebabize');
-const camelize = require('../../camelize');
+const kebabize = require('../../helpers/kebabize');
+const camelize = require('../../helpers/camelize');
+const pascalize = require('../../helpers/pascalize');
+const { FEATURE_STATES, paths } = require('../../helpers/constants');
 
 module.exports = {
   prompt: ({ inquirer }) => {
     const questions = [
       {
         type: 'input',
-        name: 'module_name',
+        name: 'moduleName',
         message: 'What is the module component name? ("Ui", "Auth", ...)',
       },
 
@@ -28,13 +30,20 @@ module.exports = {
         name: 'route',
         message: 'Enter route name ("home", "..."). Empty to use module name:',
       },
+
+      {
+        type: 'select',
+        name: 'stateType',
+        message: 'Feature state',
+        choices: [...FEATURE_STATES],
+      },
     ];
 
     return inquirer.prompt(questions).then((answers) => {
       const {
         dir,
         route,
-        module_name: moduleName,
+        moduleName,
         protected_route: protectedRoute,
       } = answers;
 
@@ -44,24 +53,29 @@ module.exports = {
       const path = `${dir ? dir : 'src/app'}/${kebabize(moduleName)}`;
       const protected = protectedRoute === 'yes';
       const kebabName = `${kebabize(moduleName)}`;
+      const pascalName = `${pascalize(kebabize(moduleName))}`;
       const kebabRoute = `${kebabize(route || moduleName)}`;
       const sagaFileName = `${kebabize(moduleName)}.saga`;
-      const moduleFileName = `${kebabize(moduleName)}.module`;
       const routeFileName = `${kebabize(moduleName)}.route`;
+      const moduleFileName = `${kebabize(moduleName)}.module`;
       const srcRelativePath = path.replace('src/', '');
+
+      const moduleMobxStorePath = `${srcRelativePath}/${kebabName}.store`;
 
       return {
         ...answers,
         path,
+        paths,
         protected,
-
-        camel_name: camelName,
-        kebab_name: kebabName,
-        kebab_route: kebabRoute,
-        saga_file_name: sagaFileName,
-        module_file_name: moduleFileName,
-        route_file_name: routeFileName,
-        src_relative_path: srcRelativePath,
+        camelName,
+        kebabName,
+        pascalName,
+        kebabRoute,
+        sagaFileName,
+        routeFileName,
+        moduleFileName,
+        srcRelativePath,
+        moduleMobxStorePath,
       };
     });
   },

@@ -1,19 +1,19 @@
 ---
-to: <%= path %>/<%= kebab_name %>.slice.tsx
+to: "<%= stateType === 'Redux' ? `${path}/${kebabName}.slice.ts` : null %>"
 ---
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-export interface <%= module_name %>State {
+export interface <%= moduleName %>State {
   loading: boolean;
 }
 
-export const <%= camel_name %>InitialState: <%= module_name %>State = {
+export const <%= camelName %>InitialState: <%= moduleName %>State = {
   loading: false,
 };
 
-const <%= camel_name %>Slice = createSlice({
-  name: '<%= camel_name %>',
-  initialState: <%= camel_name %>InitialState,
+const <%= camelName %>Slice = createSlice({
+  name: '<%= camelName %>',
+  initialState: <%= camelName %>InitialState,
   reducers: {
     setLoading(state, action: PayloadAction<boolean>) {
       state.loading = action.payload
@@ -21,4 +21,4 @@ const <%= camel_name %>Slice = createSlice({
   },
 });
 
-export const { reducer, actions, name } = <%= camel_name %>Slice;
+export const { reducer, actions, name } = <%= camelName %>Slice;

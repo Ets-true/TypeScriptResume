@@ -1,7 +1,7 @@
 ---
 to: "<%= protected ? 'src/app/app.component.tsx' : null %>"
 inject: true
-skip_if: "<%= module_name + 'Route.route' %>"
+skip_if: "<%= moduleName + 'Route.route' %>"
 after: "Protected routes"
 ---
-          <Route path={<%= module_name %>Route.route} element={<<%= module_name %>Route />} />
+          <Route path={<%= moduleName %>Route.route} element={<<%= moduleName %>Route />} />

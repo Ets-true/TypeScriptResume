@@ -1,4 +1,4 @@
 ---
 to: <%= path %>/index.tsx
 ---
-export { <%= module_name %>Module as <%= module_name %> } from './<%= module_file_name %>';
+export { <%= moduleName %>Module as <%= moduleName %> } from './<%= moduleFileName %>';

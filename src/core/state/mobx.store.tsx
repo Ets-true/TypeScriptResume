@@ -1,8 +1,10 @@
 import { createContext, FC, ReactElement, ReactNode } from 'react';
+
+// ====== >>> Generate import store here ====== >>>
 import { MobxCounterStore } from 'core/features/examples/mobx-counter/mobx-counter.store';
 
 /**
- * For using mobx MobX Developer Tools browser extension
+ * For using mobx "MobX Developer Tools" browser extension
  * Chrome: https://chrome.google.com/webstore/detail/mobx-developer-tools/pfgnfdagidkfgccljigdamigbcnndkod
  * Firefox: https://addons.mozilla.org/ru/firefox/addon/mobx-devtools/
  */
@@ -15,6 +17,7 @@ export class RootMobxStore {
   mobxCounter: MobxCounterStore;
 
   constructor() {
+    // ====== >>> Generate inicialize store here ====== >>>
     this.mobxCounter = new MobxCounterStore(this);
   }
 }

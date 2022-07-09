@@ -1,8 +1,8 @@
 ---
-to: <%= path %>/<%= kebab_name %>.saga.tsx
+to: "<%= stateType === 'Redux' ? `${path}/${kebabName}.saga.ts` : null %>"
 ---
 import { all } from 'redux-saga/effects';
 
-export function* <%= camel_name %>Saga() {
+export function* <%= camelName %>Saga() {
   yield all([]);
 }
