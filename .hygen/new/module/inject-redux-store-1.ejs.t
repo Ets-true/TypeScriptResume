@@ -1,5 +1,5 @@
 ---
-to: "<%= stateType === 'Redux' ? paths.reduxStore : null %>"
+to: "<%= stateType === 'Redux' ? paths.fromRoot.reduxStore : null %>"
 inject: true
 skip_if: "<%= camelName %>: <%= camelName %>.reducer,"
 after: "app: app.reducer,"

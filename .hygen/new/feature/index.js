@@ -1,8 +1,8 @@
-const kebabize = require('../../kebabize');
+const kebabize = require('../../helpers/kebabize');
 const featuresPath = 'src/core/features';
 const relativePath = 'core/features';
 
-const FEATURE_STATES = ['Redux', 'Default Mobx', 'Mobx with decorators'];
+const { FEATURE_STATES } = require('../../helpers/constants');
 
 module.exports = {
   prompt: ({ inquirer }) => {

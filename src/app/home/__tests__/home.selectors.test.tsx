@@ -1,11 +1,11 @@
-import { initialRootState, RootReduxState } from 'core/state/redux.store';
+import { initialRootReduxState, RootReduxState } from 'core/state/redux.store';
 import * as selectors from '../home.selectors';
 
 describe('Home Selectors', () => {
   let state: RootReduxState;
 
   beforeEach(() => {
-    state = initialRootState;
+    state = initialRootReduxState;
   });
 
   it('should select "loading" property', () => {

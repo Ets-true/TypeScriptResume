@@ -1,5 +1,5 @@
 ---
-to: "<%= stateType === 'Redux' ? paths.rootSaga : null %>"
+to: "<%= stateType === 'Redux' ? paths.fromRoot.rootSaga : null %>"
 inject: true
 after: "appSagas\\(\\),"
 ---

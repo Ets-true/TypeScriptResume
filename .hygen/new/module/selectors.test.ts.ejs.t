@@ -1,7 +1,7 @@
 ---
 to: "<%= stateType === 'Redux' ? `${path}/__tests__/${kebabName}.selectors.test.tsx` : null %>"
 ---
-import { initialRootState, RootState } from '<%= paths.reduxStore %>';
+import { initialRootState, RootState } from '<%= paths.fromRoot.reduxStore %>';
 import * as selectors from '../<%= kebabName %>.selectors';
 
 describe('<%= moduleName %> Selectors', () => {

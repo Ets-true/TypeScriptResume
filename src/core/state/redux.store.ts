@@ -14,7 +14,7 @@ import * as counter from 'core/features/examples/counter/counter.slice';
 
 const sagaMiddleware = createSagaMiddleware();
 
-export const initialRootState: RootReduxState = {
+export const initialRootReduxState: RootReduxState = {
   app: app.appInitialState,
   profileEdit: profileEdit.profileEditInitialState,
   profile: profile.profileInitialState,
