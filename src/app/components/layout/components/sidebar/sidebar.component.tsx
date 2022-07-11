@@ -155,16 +155,16 @@ const StyledLink = styled(NavLink)`
   line-height: 20px;
 
   &.active {
-    background: ${colors('lightBackground')};
+    background: ${colors('bgPrimary')};
     position: relative;
-    color: ${colors('primary')};
+    color: ${colors('textPrimary')};
     transition: background 0.5s;
 
     &:before {
       content: '';
       position: absolute;
       left: 0;
-      background: ${colors('primary')};
+      background: ${colors('textPrimary')};
       width: 6px;
       ${tw`py-8`};
     }

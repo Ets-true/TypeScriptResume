@@ -46,7 +46,7 @@ const Wrapper = styled.div`
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
-  border-right: solid 1px ${colors('darkText')};
+  border-right: solid 1px ${colors('textTetriary')};
 `;
 const WrapperTime = styled.div`
   ${tw`px-3 mr-3 leading-none`};
