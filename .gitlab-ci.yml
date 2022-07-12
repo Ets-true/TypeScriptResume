@@ -5,11 +5,11 @@ stages:
 
 include:
   - project: 'v2x-sreda/v2x-service-core-2/infra/ci-templates'
-    ref: master
+    ref: main
     file: 'js-build-core.yaml'
 #  - project: 'v2x-sreda/v2x-service-core-2/infra/ci-templates'
-#    ref: master
+#    ref: main
 #    file: 'docker-build-js-global.yaml'
 #  - project: 'v2x-sreda/v2x-service-core-2/infra/ci-templates'
-#    ref: master
+#    ref: main
 #    file: 'helm-deploy-core.yaml'
