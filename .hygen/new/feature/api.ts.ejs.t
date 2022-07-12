@@ -18,7 +18,7 @@ export async function fetch<%= h.changeCase.pascal(pluralName) %>(): Promise<<%=
 }
 
 // Fetch signle feature model
-export async function fetch<%= h.changeCase.pascal(singularName) %>(id: <%= h.changeCase.pascal(singularName) %>['id']): Promise<Image> {
+export async function fetch<%= h.changeCase.pascal(singularName) %>(id: <%= h.changeCase.pascal(singularName) %>['id']): Promise<<%= h.changeCase.pascal(singularName) %>> {
   const route = <%= h.changeCase.pascal(pluralName) %>ApiRoutesEnum.<%= h.changeCase.camel(singularName) %>.replace(/:id/g, id);
   return await api.get<<%= h.changeCase.pascal(singularName)%>>(route);
 }

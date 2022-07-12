@@ -4,7 +4,7 @@ import { actions } from 'app/app.slice';
 import { signInAction } from './sign-in.slice';
 import { submitSignIn } from 'core/features/users/users.api';
 import { SignInResponse } from 'core/features/users/users.constants';
-import { setStorageToken } from 'core/hooks/use-token';
+import { setStorageToken } from 'core/hooks/use-token.hook';
 
 function* submitSignInWorker(data: any): any {
   try {

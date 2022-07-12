@@ -1,17 +1,17 @@
 ---
-to: <%= path %>/<%= module_file_name %>.tsx
+to: <%= path %>/<%= moduleFileName %>.tsx
 ---
 import React from 'react';
 import tw, { styled } from 'twin.macro';
 
-interface <%= module_name %>Props {
+interface <%= moduleName %>Props {
 
 }
 
-export function <%= module_name %>Module(props: <%= module_name %>Props) {
+export function <%= moduleName %>Module(props: <%= moduleName %>Props) {
   return(
-    <Wrapper data-testid="<%= module_name %>">
-      <%= module_name %>
+    <Wrapper data-testid="<%= moduleName %>">
+      <%= moduleName %>
     </Wrapper>
   );
 }

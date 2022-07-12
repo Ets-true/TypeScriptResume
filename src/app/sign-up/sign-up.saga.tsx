@@ -3,7 +3,7 @@ import { all, call, put, takeLatest } from 'redux-saga/effects';
 import { actions } from 'app/app.slice';
 import { submitSignUp } from 'core/features/users/users.api';
 import { SignUpResponse } from 'core/features/users/users.constants';
-import { setStorageToken } from 'core/hooks/use-token';
+import { setStorageToken } from 'core/hooks/use-token.hook';
 import { postFormDataAction, PostSignUpPayload } from './sign-up.slice';
 import { PayloadAction } from '@reduxjs/toolkit';
 

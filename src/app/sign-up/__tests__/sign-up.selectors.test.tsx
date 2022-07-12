@@ -1,11 +1,11 @@
-import { initialRootState, RootState } from 'core/state/store';
+import { initialRootReduxState, RootReduxState } from 'core/state/redux.store';
 import * as selectors from '../sign-up.selectors';
 
 describe('SignUp Selectors', () => {
-  let state: RootState;
+  let state: RootReduxState;
 
   beforeEach(() => {
-    state = initialRootState;
+    state = initialRootReduxState;
   });
 
   it('should select "loading" property', () => {

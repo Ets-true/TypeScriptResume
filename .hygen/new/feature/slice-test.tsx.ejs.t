@@ -1,5 +1,5 @@
 ---
-to: <%= path %>/__tests__/<%= h.changeCase.param(pluralName) %>.slice.test.tsx
+to: <%= (stateType === 'Redux' && `${path}/__tests__/${h.changeCase.param(pluralName)}.slice.test.tsx`) || null %>
 ---
 import { reducer, <%= h.changeCase.camel(pluralName) %>InitialState } from '../<%= h.changeCase.param(pluralName) %>.slice';
 
