@@ -1,6 +1,4 @@
-import { toast } from 'react-toastify';
 import { getStorageToken } from 'core/hooks/use-token.hook';
-import { DefaultResponse } from 'core/interfaces/response.interfaces';
 
 // Usage example
 /* 
@@ -39,27 +37,12 @@ class ApiService implements ApiServiceInterface {
           },
     }).then(async (response) => {
       if (!response.ok) {
-        try {
-          const body: DefaultResponse<T> = await response.json();
-
-          if (body.message) {
-            toast.error(body.message);
-
-            return Promise.reject({ error: body.message });
-          }
-        } catch (e) {
-          return Promise.reject({ error: 'Ошибка парсинга' });
-        }
+        throw new Error(response.statusText);
       }
 
       try {
-        const body: DefaultResponse<T> = await response.json();
-
-        if (body.message) {
-          toast(body.message);
-        }
-
-        return Promise.resolve(body.data as T);
+        const body: T = await response.json();
+        return Promise.resolve(body);
       } catch (e) {
         return Promise.reject({ error: 'Ошибка парсинга' });
       }
@@ -84,27 +67,13 @@ class ApiService implements ApiServiceInterface {
           },
     }).then(async (response) => {
       if (!response.ok) {
-        try {
-          const body: DefaultResponse<T> = await response.json();
-
-          if (body.message) {
-            toast.error(body.message);
-
-            return Promise.reject({ error: body.message });
-          }
-        } catch (e) {
-          return Promise.reject({ error: 'Ошибка парсинга' });
-        }
+        throw new Error(response.statusText);
       }
 
       try {
-        const body: DefaultResponse<T> = await response.json();
+        const body: T = await response.json();
 
-        if (body.message) {
-          toast(body.message);
-        }
-
-        return Promise.resolve(body.data as T);
+        return Promise.resolve(body);
       } catch (e) {
         return Promise.reject({ error: 'Ошибка парсинга' });
       }
@@ -131,27 +100,12 @@ class ApiService implements ApiServiceInterface {
 
     return fetch(route, requestOptions as any).then(async (response) => {
       if (!response.ok) {
-        try {
-          const body: DefaultResponse<T> = await response.json();
-
-          if (body.message) {
-            toast.error(body.message);
-
-            return Promise.reject({ error: body.message });
-          }
-        } catch (e) {
-          return Promise.reject({ error: 'Ошибка парсинга' });
-        }
+        throw new Error(response.statusText);
       }
 
       try {
-        const body: DefaultResponse<T> = await response.json();
-
-        if (body.message) {
-          toast(body.message);
-        }
-
-        return Promise.resolve(body.data as T);
+        const body: T = await response.json();
+        return Promise.resolve(body);
       } catch (e) {
         return Promise.reject({ error: 'Ошибка парсинга' });
       }
