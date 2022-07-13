@@ -1,5 +1,5 @@
 ---
-to: <%= path %>/__tests__/<%= h.changeCase.param(pluralName) %>.saga.test.tsx
+to: <%= (stateType === 'Redux' && `${path}/__tests__/${h.changeCase.param(pluralName)}.saga.test.tsx`) || null %>
 ---
 import { <%= h.changeCase.param(pluralName) %>Saga } from '../<%= h.changeCase.param(pluralName) %>.saga';
 

@@ -1,7 +1,9 @@
-import { RootState } from 'core/state/store';
+import { RootReduxState } from 'core/state/redux.store';
 
-export const selectUser = (state: RootState) => state.app.user;
-export const selectTitle = (state: RootState) => state.app.title;
+export const selectUser = (state: RootReduxState) => state.app.user;
+export const selectTitle = (state: RootReduxState) => state.app.title;
 
-export const selectAuthLoading = (state: RootState) => state.app.authLoading;
-export const selectShowSidebar = (state: RootState) => state.app.showSidebar;
+export const selectAuthLoading = (state: RootReduxState) =>
+  state.app.authLoading;
+export const selectShowSidebar = (state: RootReduxState) =>
+  state.app.showSidebar;

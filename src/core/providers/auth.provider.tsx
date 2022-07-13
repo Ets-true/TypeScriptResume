@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { User } from 'core/features/users/users.constants';
 import { actions } from 'app/app.slice';
 import { useAppDispatch, useAppSelector } from 'core/state/hooks';
-import { removeStorageToken } from 'core/hooks/use-token';
+import { removeStorageToken } from 'core/hooks/use-token.hook';
 
 export const useAuth = () => React.useContext(AuthContext);
 

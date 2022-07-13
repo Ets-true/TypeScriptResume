@@ -1,14 +1,14 @@
 ---
-to: "<%= protected ? `${path}/${route_file_name}.tsx` : null %>"
+to: "<%= protected ? `${path}/${routeFileName}.tsx` : null %>"
 ---
 import React from 'react';
 import { RequiredAuth } from 'core/components';
-import { <%= module_name %> } from '.';
+import { <%= moduleName %> } from '.';
 
-export const <%= module_name %>Route = () => (
+export const <%= moduleName %>Route = () => (
   <RequiredAuth>
-    <<%= module_name %> />
+    <<%= moduleName %> />
   </RequiredAuth>
 );
 
-<%= module_name %>Route.route = '/<%= kebab_route %>';
+<%= moduleName %>Route.route = '/<%= kebabRoute %>';

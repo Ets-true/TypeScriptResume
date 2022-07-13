@@ -1,6 +1,6 @@
 ---
-to: src/core/state/saga.ts
+to: "<%= stateType === 'Redux' ? paths.fromRoot.rootSaga : null %>"
 inject: true
 after: "appSagas\\(\\),"
 ---
-    <%= camel_name %>Saga(),
+    <%= camelName %>Saga(),

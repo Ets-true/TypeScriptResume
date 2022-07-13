@@ -1,8 +1,8 @@
 ---
-to: "<%= !protected ? `${path}/${route_file_name}.tsx` : null %>"
+to: "<%= !protected ? `${path}/${routeFileName}.tsx` : null %>"
 ---
 import React from 'react';
-import { <%= module_name %> } from '.';
+import { <%= moduleName %> } from '.';
 
-export const <%= module_name %>Route = () => <<%= module_name %> />;
-<%= module_name %>Route.route = '/<%= kebab_name %>';
+export const <%= moduleName %>Route = () => <<%= moduleName %> />;
+<%= moduleName %>Route.route = '/<%= kebabName %>';

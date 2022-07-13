@@ -16,6 +16,8 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "baseUrl": "./src",
+    "experimentalDecorators": true,
+    // "useDefineForClassFields": true,
 
     "types": ["puppeteer", "jest-environment-puppeteer", "expect-puppeteer"]
   },

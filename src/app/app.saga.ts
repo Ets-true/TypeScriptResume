@@ -5,7 +5,7 @@ import { actions } from 'app/app.slice';
 import { checkAuth } from 'core/features/users/users.api';
 import { startAppActoin } from './app.slice';
 import { CheckAuthResponse } from 'core/features/users/users.constants';
-import { removeStorageToken } from 'core/hooks/use-token';
+import { removeStorageToken } from 'core/hooks/use-token.hook';
 import { asyncTimeout } from 'core/helpers/async-timeout';
 import { isRequiredAuth } from 'core/helpers/is-required-auth';
 

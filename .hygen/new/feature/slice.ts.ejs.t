@@ -1,5 +1,5 @@
 ---
-to: <%= path %>/<%= h.changeCase.param(pluralName) %>.slice.tsx
+to: <%= (stateType === 'Redux' && `${path}/${h.changeCase.param(pluralName)}.slice.tsx`) || null %>
 ---
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 

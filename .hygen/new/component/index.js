@@ -1,4 +1,4 @@
-const kebabize = require('../../kebabize');
+const kebabize = require('../../helpers/kebabize');
 
 module.exports = {
   prompt: ({ inquirer }) => {

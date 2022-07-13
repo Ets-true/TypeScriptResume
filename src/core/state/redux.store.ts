@@ -14,7 +14,7 @@ import * as counter from 'core/features/examples/counter/counter.slice';
 
 const sagaMiddleware = createSagaMiddleware();
 
-export const initialRootState: RootState = {
+export const initialRootReduxState: RootReduxState = {
   app: app.appInitialState,
   profileEdit: profileEdit.profileEditInitialState,
   profile: profile.profileInitialState,
@@ -25,7 +25,7 @@ export const initialRootState: RootState = {
   counter: counter.counterInitialState,
 };
 
-export const store = configureStore({
+export const reduxStore = configureStore({
   reducer: {
     app: app.reducer,
     profileEdit: profileEdit.reducer,
@@ -46,11 +46,11 @@ export const store = configureStore({
 
 sagaMiddleware.run(saga);
 
-export type AppDispatch = typeof store.dispatch;
-export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof reduxStore.dispatch;
+export type RootReduxState = ReturnType<typeof reduxStore.getState>;
 export type AppThunk<ReturnType = void> = ThunkAction<
   ReturnType,
-  RootState,
+  RootReduxState,
   unknown,
   Action<string>
 >;

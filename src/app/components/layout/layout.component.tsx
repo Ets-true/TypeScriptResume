@@ -48,5 +48,5 @@ const Wrapper = styled.div<WrapperProps>`
   padding-left: ${(p) => (p.toggled ? TOGGLED_SIDEBAR_WIDTH : 250)}px;
 
   transition: all 0.5s ease;
-  background-color: ${colors('background')};
+  background-color: ${colors('bgPrimary')};
 `;

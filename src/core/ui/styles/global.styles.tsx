@@ -11,7 +11,7 @@ const CustomStyles = createGlobalStyle`
   body, html, #root {
     ${tw`h-full w-full`};
 
-    color: ${colors('mainText')};
+    color: ${colors('textPrimary')};
     font-family: 'Roboto';
   }
 

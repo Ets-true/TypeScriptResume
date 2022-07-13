@@ -1,5 +1,5 @@
 ---
-to: <%= path %>/<%= h.changeCase.param(pluralName) %>.actions.tsx
+to: <%= (stateType === 'Redux' && `${path}/${h.changeCase.param(pluralName)}.actions.ts`) || null %>
 ---
 import { createAction } from '@reduxjs/toolkit';
 

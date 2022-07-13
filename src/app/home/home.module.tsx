@@ -1,3 +1,4 @@
+import { MobxCounter } from 'core/features/examples/mobx-counter';
 import React from 'react';
 import tw, { styled } from 'twin.macro';
 import { Button } from './../../core/ui/components/button/index';
