@@ -30,11 +30,12 @@ const Wrapper = styled.div`
 `;
 
 const CustomButton = styled.button<ButtonProps>`
-  border: 2px solid ${colors('error')};
+  border: 2px solid ${colors('primaryPrimary')};
   width: 89px;
   height: 40px;
   border-radius: 8px;
-  background-color: ${colors('error')};
+  background-color: ${colors('primaryPrimary')};
+  color: white;
   /* border-color: $(colors('error')); */
   /* ${(props) => {
     switch (props.theme) {

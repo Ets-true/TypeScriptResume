@@ -12,7 +12,7 @@ const CustomStyles = createGlobalStyle`
     ${tw`h-full w-full`};
 
     color: ${colors('textPrimary')};
-    font-family: 'Roboto';
+    font-family: 'Ubuntu';
   }
 
   input {

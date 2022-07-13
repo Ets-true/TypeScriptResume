@@ -13,7 +13,7 @@ export function HomeModule(props: HomeProps) {
   return (
     <Wrapper data-testid="Home">
       <Button theme="dark" onClick={onclickHandler}>
-        Click on
+        BUTTON
       </Button>
     </Wrapper>
   );
