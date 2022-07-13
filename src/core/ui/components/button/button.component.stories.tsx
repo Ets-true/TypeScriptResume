@@ -7,7 +7,6 @@ type Props = React.ComponentProps<typeof Button>;
 
 const csf: Meta = {
   title: 'ui/Button',
-  component: Button,
 };
 
 const Template: Story<Props> = (args) => <Button {...args} />;

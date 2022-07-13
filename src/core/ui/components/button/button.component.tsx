@@ -1,41 +1,21 @@
 import React from 'react';
 import tw, { styled, css } from 'twin.macro';
+import { colors } from '../../styles';
 
 interface ButtonProps {
   onClick?: () => void;
   children?: React.ReactNode;
   theme?: string;
+  // type?: string;
+  disabled?: boolean;
 }
 
-interface IProps {
-  theme?: string;
-}
+// export type ButtonDisabledState = 'disabled' | null;
 
-const Wrapper = styled.div`
-  width: auto;
-`;
-
-const CustomButton = styled.button<IProps>`
-  ${(props: ButtonProps) => {
-    switch (props.theme) {
-      case 'dark':
-        return css`
-          background-color: black;
-          color: white;
-        `;
-      case 'red':
-        return css`
-          background-color: red;
-          color: white;
-        `;
-      default:
-        return css`
-          background-color: white;
-          color: black;
-        `;
-    }
-  }}
-`;
+// interface IProps {
+//   onClick?: () => void;
+//   theme?: string;
+// }
 
 export function ButtonComponent(props: ButtonProps) {
   return (
@@ -44,3 +24,35 @@ export function ButtonComponent(props: ButtonProps) {
     </Wrapper>
   );
 }
+
+const Wrapper = styled.div`
+  width: auto;
+`;
+
+const CustomButton = styled.button<ButtonProps>`
+  border: 2px solid ${colors('error')};
+  width: 89px;
+  height: 40px;
+  border-radius: 8px;
+  background-color: ${colors('error')};
+  /* border-color: $(colors('error')); */
+  /* ${(props) => {
+    switch (props.theme) {
+      case 'dark':
+        return `
+          background-color: black;
+          color: white;
+        `;
+      case 'red':
+        return `
+          background-color: red;
+          color: white;
+        `;
+      default:
+        return `
+          background-color: purple;
+          color: black;
+        `;
+    }
+  }} */
+`;
