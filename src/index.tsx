@@ -4,6 +4,8 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 
+import './i18n';
+
 import { App } from './app';
 import { reduxStore } from './core/state/redux.store';
 import * as serviceWorker from './serviceWorker';
