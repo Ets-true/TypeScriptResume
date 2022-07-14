@@ -18,24 +18,31 @@ import { ReactComponent as DooubleArrowsImage } from 'core/ui/assets/icons/doubl
 import { actions } from 'app/app.slice';
 import { selectShowSidebar } from 'app/app.selectors';
 import { colors } from 'core/ui/styles';
+import { useTranslation } from 'react-i18next';
 
 export const SIDEBAR_WIDTH = 250;
 export const TOGGLED_SIDEBAR_WIDTH = 70;
 
 const menuItems = [
-  { title: 'Дашборд', href: '/', icon: <IconDashboard /> },
-  { title: 'Карта', href: '/map', icon: <IconMarker /> },
-  { title: 'Устройства', href: '/devices', icon: <IconDevices /> },
-  { title: 'Статистика', href: '/timeline', icon: <IconTimeline /> },
-  { title: 'События', href: '/events', icon: <IconEvents /> },
-  { title: 'Системные KPI', href: '/cellular', icon: <IconSignalCellular /> },
-  { title: 'Пользователи', href: '/users', icon: <UsersImage /> },
+  { title: 'sidebar.dashboard', href: '/', icon: <IconDashboard /> },
+  { title: 'sidebar.map', href: '/map', icon: <IconMarker /> },
+  { title: 'sidebar.devices', href: '/devices', icon: <IconDevices /> },
+  { title: 'sidebar.statistic', href: '/timeline', icon: <IconTimeline /> },
+  { title: 'sidebar.events', href: '/events', icon: <IconEvents /> },
+  {
+    title: 'sidebar.systemKpi',
+    href: '/cellular',
+    icon: <IconSignalCellular />,
+  },
+  { title: 'sidebar.users', href: '/users', icon: <UsersImage /> },
 ];
 
 interface PureSsidebarProps {
   showSidebar: boolean;
 }
 export function PureSidebarComponent({ showSidebar }: PureSsidebarProps) {
+  const { t } = useTranslation();
+
   const dispatch = useDispatch();
 
   const toggleMenu = () => {
@@ -53,7 +60,7 @@ export function PureSidebarComponent({ showSidebar }: PureSsidebarProps) {
           <SidebarNavItem key={`sidebar-item-${index}`}>
             <StyledLink to={item.href} key={uuidv4()}>
               <WrapperIcon>{item.icon}</WrapperIcon>
-              <StyledLinkText>{item.title}</StyledLinkText>
+              <StyledLinkText>{t(item.title)}</StyledLinkText>
             </StyledLink>
           </SidebarNavItem>
         ))}

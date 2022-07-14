@@ -1,0 +1,13 @@
+{
+  "home": "Home page",
+
+  "sidebar": {
+    "dashboard": "dashboard",
+    "map": "map",
+    "devices": "devices",
+    "statistic": "statistic",
+    "events": "events",
+    "systemKpi": "System KPI",
+    "users": "users"
+  }
+}
