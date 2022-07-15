@@ -2,7 +2,7 @@ import React from 'react';
 import { Story, Meta } from '@storybook/react';
 
 import { PureSidebar } from '.';
-import { StoreWrapper } from 'core/storybook';
+import { StorybookStoreWrapper } from 'core/storybook';
 
 type Props = React.ComponentProps<typeof PureSidebar>;
 
@@ -11,9 +11,9 @@ const csf: Meta = {
 };
 
 const Template: Story<Props> = (args) => (
-  <StoreWrapper>
+  <StorybookStoreWrapper>
     <PureSidebar {...args} />
-  </StoreWrapper>
+  </StorybookStoreWrapper>
 );
 
 export const c1 = Template.bind({});

@@ -1,1 +1,1 @@
-export { StoreWrapperComponent as StoreWrapper } from './store-wrapper.component';
+export { StorybookStoreWrapperComponent as StorybookStoreWrapper } from './storybook-store-wrapper.component';
