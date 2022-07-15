@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { GlobalStyles } from 'core/ui/styles';
 import { BrowserRouter } from 'react-router-dom';
 
-export const StoreWrapperComponent = (props: any) => {
+export const StorybookStoreWrapperComponent = (props: any) => {
   return (
     <BrowserRouter>
       <Provider store={store}>

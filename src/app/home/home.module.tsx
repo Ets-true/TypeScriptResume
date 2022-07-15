@@ -1,5 +1,5 @@
-// import { MobxCounter } from 'core/features/examples/mobx-counter';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import tw, { styled } from 'twin.macro';
 import { Button } from './../../core/ui/components/button/index';
 import { ReactComponent as Icon } from 'core/ui/assets/icons/users.icon.svg';
@@ -11,13 +11,9 @@ function onclickHandler() {
 }
 
 export function HomeModule(props: HomeProps) {
-  return (
-    <Wrapper data-testid="Home">
-      <Button secondary iconRight={<Icon />} onClick={onclickHandler}>
-        BUTTON CLICK ON ME
-      </Button>
-    </Wrapper>
-  );
+  const { t } = useTranslation();
+
+  return <Wrapper data-testid="Home">{t('home')}</Wrapper>;
 }
 
 const Wrapper = styled.div`

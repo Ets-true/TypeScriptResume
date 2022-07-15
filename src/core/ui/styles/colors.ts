@@ -3,8 +3,9 @@ import { theme } from 'twin.macro';
 
 export type ThemeMode = 'light' | 'dark';
 
-const mode: ThemeMode = (localStorage.getItem('theme') as ThemeMode) || 'light';
+export const themeMode: ThemeMode =
+  (localStorage.getItem('theme') as ThemeMode) || 'light';
 
 export function colors(color: keyof typeof themeConfig.dark.colors) {
-  return (theme() as any)[mode].colors[String(color)];
+  return (theme() as any)[themeMode].colors[String(color)];
 }
